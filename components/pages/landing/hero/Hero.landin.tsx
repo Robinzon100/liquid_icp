@@ -89,8 +89,6 @@ const Hero = () => {
 
 
         //============================ POSTPROCESSING 
-
-
         let composer = new EffectComposer(renderer);
         const renderPass = new RenderPass(scene, camera);
         composer.addPass(renderPass);

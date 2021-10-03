@@ -19,13 +19,16 @@ gsap.registerPlugin(ScrollTrigger)
 //import{ vertex } from "./shaders/vertexShader";
 
 
+interface IThreeDIcon {
+    scale?: number
+    gltfModelPath: string,
+}
 
 
 
 
 
-
-const SingleIcon = () => {
+const ThreeDIcon = ({ scale = .3, gltfModelPath}: IThreeDIcon) => {
     let postEnabled = false
     const [cursor,] = useState({ x: 0, y: 0 })
 
@@ -47,14 +50,14 @@ const SingleIcon = () => {
 
 
         const sizes = {
-            width: window.innerWidth,
-            height: window.innerHeight
+            width: window.innerWidth * scale,
+            height: window.innerWidth * scale
         }
 
 
         //============================ SCENE
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color('#020305');
+        // scene.background = new THREE.Color('#020305');
 
         scene.fog = new THREE.Fog(0x000000, 10, 20);
 
@@ -95,8 +98,8 @@ const SingleIcon = () => {
 
 
         //============================ CAMERA
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
-        camera.position.set(0, 0, 2);
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.width, 0.01, 1000);
+        camera.position.set(0, 0, 1);
         scene.add(camera)
 
 
@@ -104,12 +107,13 @@ const SingleIcon = () => {
 
 
         //============================ RENDERER
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, premultipliedAlpha: false, })
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.25;
         renderer.setSize(sizes.width, sizes.height);
+
 
 
 
@@ -159,7 +163,7 @@ const SingleIcon = () => {
             });
 
             loader.load(
-                '/3d_models/circle_with_orbit.glb',
+                gltfModelPath,
                 (gltf) => {
                     scene.add(gltf.scene);
 
@@ -204,15 +208,15 @@ const SingleIcon = () => {
 
         //============================ RESIZE
         window.addEventListener("resize", () => {
-            sizes.width = window.innerWidth;
-            sizes.height = window.innerHeight;
+            sizes.width = sizes.width;
+            sizes.height = sizes.width;
 
             camera.aspect = sizes.width / sizes.height;
             camera.updateProjectionMatrix();
 
             renderer.setSize(sizes.width, sizes.height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            composer.setSize(window.innerWidth, window.innerHeight);
+            composer.setSize(sizes.width, sizes.width);
         })
 
 
@@ -220,8 +224,8 @@ const SingleIcon = () => {
 
         //============================  MOUSEMOVE EVENT
         window.addEventListener("mousemove", (e) => {
-            cursor.x = (e.clientX / window.innerWidth) * 2.4 - 1;
-            cursor.y = - (e.clientY / window.innerHeight) * 2.4 + 1;
+            cursor.x = (e.clientX / sizes.width) * 2.4 - 1;
+            cursor.y = - (e.clientY / sizes.width) * 2.4 + 1;
         })
 
 
@@ -265,4 +269,4 @@ const SingleIcon = () => {
 
 
 
-export default SingleIcon
+export default ThreeDIcon
