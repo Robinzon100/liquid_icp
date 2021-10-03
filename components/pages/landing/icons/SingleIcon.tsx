@@ -167,7 +167,7 @@ const ThreeDIcon = ({ scale = .3, gltfModelPath}: IThreeDIcon) => {
                 (gltf) => {
                     scene.add(gltf.scene);
 
-                    scene.traverse((child: THREE.Object3D) => {
+                    gltf.scene.traverse((child: THREE.Object3D) => {
                         if ((child as THREE.Mesh).isMesh) {
                             (child as THREE.Mesh).material = logoMaterial;
                             (child as THREE.Mesh).castShadow = true;

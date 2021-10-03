@@ -178,10 +178,11 @@ const Hero = () => {
             // scene.background = hdrmap;
             // scene.environment = hdrmap;
 
-            const roughnessMapTexture = new THREE.TextureLoader().load('/textures/Plane_roughness.png')
+            const roughnessMapTexture = new THREE.TextureLoader().load('/textures/rought.png')
             const normalMapTexture = new THREE.TextureLoader().load('/textures/Plane_normal.png')
             const townMatterial = new THREE.MeshStandardMaterial({
                 color: 0x000000,
+                // roughnessMap: roughnessMapTexture,
                 roughness: 0.31,
                 normalMap: normalMapTexture,
                 normalScale: new THREE.Vector2(0.8, 0.8),
@@ -192,8 +193,8 @@ const Hero = () => {
 
             const logoMaterial = new THREE.MeshStandardMaterial({
                 color: 0x000000,
-                metalnessMap: roughnessMapTexture,
-                roughness: 0.21,
+                // roughnessMap: roughnessMapTexture,
+                roughness: 0,
                 // normalMap: normalMapTexture,
                 // normalScale: new THREE.Vector2(0.2, 0.2),
                 emissive: 0x3357FA,
@@ -208,15 +209,12 @@ const Hero = () => {
                 (gltf) => {
                     scene.add(gltf.scene);
 
-                    scene.traverse((child: THREE.Object3D) => {
+
+                    gltf.scene.traverse((child: THREE.Object3D) => {
                         if ((child as THREE.Mesh).isMesh) {
                             (child as THREE.Mesh).material = townMatterial;
                             (child as THREE.Mesh).castShadow = true;
                             (child as THREE.Mesh).receiveShadow = true;
-                            gsap.to(child.children[0], {
-                                x: 100,
-                                duration: 10
-                            })
                         }
                     })
                 },
@@ -237,14 +235,17 @@ const Hero = () => {
                     gltf.scene.scale.set(2, 2, 2);
 
 
-                    scene.traverse((child: THREE.Object3D) => {
+                    gltf.scene.traverse((child: THREE.Object3D) => {
                         if ((child as THREE.Mesh).isMesh) {
                             (child as THREE.Mesh).material = logoMaterial;
                             (child as THREE.Mesh).castShadow = true;
                             (child as THREE.Mesh).receiveShadow = true;
-                            gsap.to(child.children[0], {
-                                x: 100,
-                                duration: 10
+                            console.log(child);
+                            
+                            
+                            gsap.to(child.rotation, {
+                                y: 10,
+                                duration: 10,
                             })
                         }
                     })
