@@ -10,9 +10,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-
-
+import { AfterimagePass } from 'three/examples/jsm/postprocessing/AfterimagePass.js';
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
@@ -27,9 +25,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 
-const Hero = () => {
+const SingleIcon = () => {
     let postEnabled = false
     const [cursor,] = useState({ x: 0, y: 0 })
+
+
 
 
     useEffect(() => {
@@ -41,32 +41,15 @@ const Hero = () => {
 
 
     const init = () => {
-        //! TODO: get rid of leva 
+        // TODO: use leva instead of this
         const canvas = document.querySelector(".landing_canvas") as HTMLElement;
+        const clock = new THREE.Clock();
 
 
         const sizes = {
             width: window.innerWidth,
             height: window.innerHeight
         }
-
-        const postProcessingParams = {
-            exposure: 5,
-            bloomStrength: 0.3,
-            bloomThreshold: 0,
-            bloomRadius: 1
-        };
-
-
-
-        //============================ RENDERER
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.outputEncoding = THREE.sRGBEncoding;
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.25;
-        renderer.setSize(sizes.width, sizes.height);
-
 
 
         //============================ SCENE
@@ -78,76 +61,30 @@ const Hero = () => {
 
 
 
-        //============================ CAMERA
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
-        camera.position.set(0, -5, 0);
-        camera.rotation.set(5, 0, 0)
-        scene.add(camera)
-
-
-
-
-
-        //============================ POSTPROCESSING 
-
-
-        let composer = new EffectComposer(renderer);
-        const renderPass = new RenderPass(scene, camera);
-        composer.addPass(renderPass);
-        const renderScene = new RenderPass(scene, camera);
-
-        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-        bloomPass.threshold = postProcessingParams.bloomThreshold;
-        bloomPass.strength = postProcessingParams.bloomStrength;
-        bloomPass.radius = postProcessingParams.bloomRadius;
-
-        composer = new EffectComposer(renderer);
-        composer.addPass(renderScene);
-        composer.addPass(bloomPass);
-
-
-        // const bokehPass = new BokehPass(scene, camera, {
-        //     focus: 0.15,
-        //     aperture: 0.025,
-        //     maxblur: 0.01,
-
-        //     width: window.innerWidth,
-        //     height: window.innerHeight
-        // });
-        // composer.addPass(renderPass);
-        // composer.addPass(bokehPass);
-
-
-
-
-
-
-
-
 
         //============================ LIGHT
-        // const light = new THREE.DirectionalLight(0x1253FE, 5);
-        // light.position.set(0, 1, 0); //default; light shining from top
-        // light.castShadow = true; // default false
-        // scene.add(light);
+        const light = new THREE.DirectionalLight(0x1253FE, 5);
+        light.position.set(0, 1, 0); //default; light shining from top
+        light.castShadow = true; // default false
+        scene.add(light);
 
 
-        // let pointLigtht1 = new THREE.PointLight(0xE05289, 10);
-        // pointLigtht1.position.set(10, 10, 10);
-        // pointLigtht1.castShadow = true
-        // scene.add(pointLigtht1)
+        let pointLigtht1 = new THREE.PointLight(0xE05289, 10);
+        pointLigtht1.position.set(10, 10, 10);
+        pointLigtht1.castShadow = true
+        scene.add(pointLigtht1)
 
-        // let pointLigtht2 = new THREE.PointLight(0x3357FA, 10);
-        // pointLigtht2.position.set(-10, 5, 0);
-        // pointLigtht2.castShadow = true
-        // scene.add(pointLigtht2)
+        let pointLigtht2 = new THREE.PointLight(0x3357FA, 10);
+        pointLigtht2.position.set(-10, 5, 0);
+        pointLigtht2.castShadow = true
+        scene.add(pointLigtht2)
 
-        // let pointLigtht3 = new THREE.PointLight(0x3357FA, 10);
-        // pointLigtht3.position.set(0, 5, 0);
-        // pointLigtht3.castShadow = true
-        // pointLigtht3.scale.set(10, 0, 10);
+        let pointLigtht3 = new THREE.PointLight(0x3357FA, 10);
+        pointLigtht3.position.set(0, 5, 0);
+        pointLigtht3.castShadow = true
+        pointLigtht3.scale.set(10, 0, 10);
 
-        // scene.add(pointLigtht3)
+        scene.add(pointLigtht3)
 
         var lighth = new THREE.HemisphereLight(0xf6e86d, 0x404040, 15);
         scene.add(lighth);
@@ -157,6 +94,22 @@ const Hero = () => {
 
 
 
+        //============================ CAMERA
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
+        camera.position.set(0, 0, 2);
+        scene.add(camera)
+
+
+
+
+
+        //============================ RENDERER
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.25;
+        renderer.setSize(sizes.width, sizes.height);
 
 
 
@@ -196,8 +149,8 @@ const Hero = () => {
                 color: 0x000000,
                 metalnessMap: roughnessMapTexture,
                 roughness: 0.21,
-                // normalMap: normalMapTexture,
-                // normalScale: new THREE.Vector2(0.2, 0.2),
+                normalMap: normalMapTexture,
+                normalScale: new THREE.Vector2(0.2, 0.2),
                 emissive: 0x3357FA,
                 emissiveIntensity: 0.005,
                 envMap: envmap.texture,
@@ -206,38 +159,9 @@ const Hero = () => {
             });
 
             loader.load(
-                '/3d_models/test_test2.glb',
+                '/3d_models/circle_with_orbit.glb',
                 (gltf) => {
                     scene.add(gltf.scene);
-
-                    scene.traverse((child: THREE.Object3D) => {
-                        if ((child as THREE.Mesh).isMesh) {
-                            (child as THREE.Mesh).material = townMatterial;
-                            (child as THREE.Mesh).castShadow = true;
-                            (child as THREE.Mesh).receiveShadow = true;
-                            gsap.to(child.children[0], {
-                                x: 100,
-                                duration: 10
-                            })
-                        }
-                    })
-                },
-                (xhr) => {
-                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                },
-                (error) => {
-                    console.error('An error happened');
-                    console.error(error);
-                }
-            );
-
-            loader.load(
-                '/3d_models/logo.glb',
-                (gltf) => {
-                    scene.add(gltf.scene);
-                    gltf.scene.position.set(0, 3, 0);
-                    gltf.scene.scale.set(2, 2, 2);
-
 
                     scene.traverse((child: THREE.Object3D) => {
                         if ((child as THREE.Mesh).isMesh) {
@@ -266,10 +190,13 @@ const Hero = () => {
 
 
 
+        //============================ POSTPROCESSING 
+        let composer = new EffectComposer(renderer);
+        let afterimagePass = new AfterimagePass();
 
-
-        // const glitchPass = new GlitchPass();
-        // composer.addPass(glitchPass);
+        (afterimagePass as any).uniforms['damp'].value = 1
+        composer.addPass(new RenderPass(scene, camera));
+        composer.addPass(afterimagePass);
 
 
 
@@ -284,7 +211,6 @@ const Hero = () => {
             camera.updateProjectionMatrix();
 
             renderer.setSize(sizes.width, sizes.height);
-            composer.setSize(sizes.width, sizes.height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             composer.setSize(window.innerWidth, window.innerHeight);
         })
@@ -305,13 +231,17 @@ const Hero = () => {
 
 
         const animate = () => {
-            requestAnimationFrame(animate);
             controls.update();
-            composer.render();
+            const elapsedTime = clock.getElapsedTime();
+            renderer.clear();
 
-            // renderer.clear();
-            // const elapsedTime = clock.getElapsedTime();
-            // renderer.render(scene, camera);
+            if (postEnabled) {
+                composer.render();
+            } else {
+                renderer.render(scene, camera);
+            }
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
         }
         animate()
         renderer.clear();
@@ -335,4 +265,4 @@ const Hero = () => {
 
 
 
-export default Hero
+export default SingleIcon
