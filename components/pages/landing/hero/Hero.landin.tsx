@@ -28,7 +28,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 const Hero = () => {
-    let postEnabled = false
     const [cursor,] = useState({ x: 0, y: 0 })
 
 
@@ -178,7 +177,7 @@ const Hero = () => {
             // scene.background = hdrmap;
             // scene.environment = hdrmap;
 
-            const roughnessMapTexture = new THREE.TextureLoader().load('/textures/rought.png')
+            // const roughnessMapTexture = new THREE.TextureLoader().load('/textures/rought.png')
             const normalMapTexture = new THREE.TextureLoader().load('/textures/Plane_normal.png')
             const townMatterial = new THREE.MeshStandardMaterial({
                 color: 0x000000,
