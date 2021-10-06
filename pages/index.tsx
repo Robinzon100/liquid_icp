@@ -3,6 +3,8 @@
 // import ThreeDIcon from "components/pages/landing/icons/ThreeDIcon";
 import dynamic from "next/dynamic";
 const ThreeDIcon = dynamic(() => import('../components/pages/landing/icons/ThreeDIcon'), { ssr: false });
+import Hero from "components/pages/landing/hero/Hero.landin"
+
 
 const imagesArray = [
     {
@@ -37,7 +39,7 @@ const imagesArray = [
 const index = () => {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       <ThreeDIcon />
     </>
   );

@@ -8,6 +8,7 @@ const ThreeDIcon: FC = () => {
         '/3d_models/hex.glb',
         '/3d_models/circle_with_orbit.glb',
         '/3d_models/logo.glb',
+        '/3d_models/hex.glb'
     ]
 
 
