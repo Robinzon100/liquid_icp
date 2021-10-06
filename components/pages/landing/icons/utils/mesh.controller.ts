@@ -12,7 +12,8 @@ gsap.registerPlugin(ScrollTrigger)
 export const addGLFModel = (
     scene: THREE.Scene,
     renderer: THREE.WebGLRenderer,
-    gltfModelPath: string) => {
+    gltfModelPath: string,
+    canvasQuerySelector?:string) => {
 
 
     //============================ ENV
@@ -66,7 +67,11 @@ export const addGLFModel = (
                 })
             },
             (xhr) => {
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                if(xhr.loaded > 9000 && canvasQuerySelector) {
+                    (document.querySelector(canvasQuerySelector) as HTMLElement).style.backgroundImage = "none"; 
+                }
+                console.log(xhr.loaded);
             },
             (error) => {
                 console.error('An error happened');

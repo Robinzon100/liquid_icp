@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-
+import {gsap} from "gsap"
 
 
 
 export const createScene = (scale: number, elementQueryString: string) => {
-    // TODO: use leva instead of this
+    let mouse = {x:0,y:0}
     const canvas = document.querySelector(elementQueryString) as HTMLElement;
     // const clock = new THREE.Clock();
 
@@ -59,7 +59,7 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
     //============================ CAMERA
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.width, 0.01, 1000);
-    camera.position.set(0, 0, .7);
+    camera.position.set(0, 0, .6);
     scene.add(camera)
 
 
@@ -107,9 +107,33 @@ export const createScene = (scale: number, elementQueryString: string) => {
     // controls.enableDamping = true
 
 
+     //  MOUSEMOVE EVENT
+     window.addEventListener("mousemove", (e) => {
+        mouse.x = (e.clientX / sizes.width) * 1.2 - 1;
+        mouse.y = - (e.clientY / sizes.height) * 1.2 + 1;
+    })
+
 
     const animate = () => {
         // controls.update();
+
+        if(scene.children) {
+        const el = scene.children.find(el => el.type == "Group" );
+            if (el) {
+                if(window.innerWidth < 550) {
+                    el!.rotation.y += 0.01
+                }else {
+                    gsap.to(el!.rotation, { y: mouse.x });
+                    gsap.to(el!.rotation, { x: mouse.y });
+                }
+            }
+
+            
+        }
+
+        
+        
+        
         renderer.clear();
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
