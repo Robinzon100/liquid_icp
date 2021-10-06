@@ -1,52 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-/// ====================== Noto
-
 @font-face {
-    font-family: "georgian";
-    font-weight: 900;
-    src: url("/fonts/Noto/NotoSansGeorgian-ExtraBold.ttf");
-}
-
-
-@font-face {
-    font-family: "georgian";
-    font-weight: 800;
-    src: url("/fonts/Noto/NotoSansGeorgian-Bold.ttf");
+	font-family: 'Heebo';
+	src: url('/fonts/Heebo-VariableFont_wght.ttf') format('woff2 supports variations'),
+       url('/fonts/Heebo-VariableFont_wght.ttf') format('woff2-variations');
+	font-weight: 100 900;
 }
 
 @font-face {
-    font-family: "georgian";
-    font-weight: 700;
-    src: url("/fonts/Noto/NotoSansGeorgian-SemiBold.ttf");
+	font-family: 'Satoshi';
+	src: url('/fonts/Satoshi-Variable.ttf') format('woff2 supports variations'),
+       url('/fonts/Satoshi-Variable.ttf') format('woff2-variations');
+	font-weight: 100 900;
 }
-
-
-@font-face {
-    font-family: "georgian";
-    font-weight: 500;
-    src: url("/fonts/Noto/NotoSansGeorgian-Medium.otf");
-}
-
-
-
-@font-face {
-    font-family: "georgian";
-    font-weight: 400;
-    src: url("/fonts/Noto/NotoSansGeorgian-Regular.ttf");
-}
-
-
-@font-face {
-    font-family: "georgian";
-    font-weight: 100;
-    src: url("/fonts/Noto/NotoSansGeorgian-Light.ttf");
-}
-
-
-
-
-
-
-
-

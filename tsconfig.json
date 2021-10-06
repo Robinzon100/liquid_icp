@@ -15,7 +15,7 @@
       "isolatedModules": true,
       "jsx": "preserve",
       "baseUrl": ".",
-      "noImplicitAny": true,
+    //   "noImplicitAny": true,
       "strictNullChecks": true,
       "strictFunctionTypes": true,
       "strictBindCallApply": true,

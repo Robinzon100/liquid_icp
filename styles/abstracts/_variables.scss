@@ -1,14 +1,65 @@
 :root {
-    //*===COLIRS
-    --primary-blue:#0044F8;
-    --primary-white:#FFFFFF;
+  //*===COLIRS
+  --blue_-1: rgba(43, 76, 222, 1);
+  --blue: rgba(51, 87, 250, 1);
+  --blue_1: rgba(77, 114, 254, 1);
+  --blue_2: rgba(154, 172, 255, 1);
+  --blue_3: rgba(200, 210, 255, 1);
+  --black_-1: rgba(10, 10, 16, 1);
+  --black: rgba(20, 21, 34, 1);
+  --black_1: rgba(65, 66, 77, 1);
+  --black_2: rgba(154, 155, 161, 1);
+  --black_3: rgba(218, 218, 221, 1);
+  --grey_1: rgba(229, 228, 232, 1);
+  --grey_2: rgba(235, 235, 238, 1);
+  --grey_3: rgba(239, 239, 241, 1);
+  --grey: rgba(219, 218, 223, 1);
+  --grey_-1: rgba(202, 202, 207, 1);
+  --white_1: rgba(255, 255, 255, 1);
+  --white: rgba(252, 252, 252, 1);
+  --white_-1: rgba(246, 246, 246, 1);
+  --green_-1: rgba(13, 181, 111, 1);
+  --green: rgba(0, 199, 117, 1);
+  --green_1: rgba(20, 209, 153, 1);
+  --green_2: rgba(102, 225, 188, 1);
+  --green_3: rgba(158, 236, 212, 1);
+  --yellow_-1: rgba(236, 164, 56, 1);
+  --yellow: rgba(254, 186, 84, 1);
+  --yellow_1: rgba(255, 203, 124, 1);
+  --yellow_2: rgba(255, 222, 172, 1);
+  --yellow_3: rgba(255, 233, 200, 1);
+  --red_-1: rgba(228, 53, 48, 1);
+  --red: rgba(255, 60, 54, 1);
+  --red_1: rgba(254, 95, 90, 1);
+  --red_2: rgba(254, 154, 151, 1);
+  --red_3: rgba(254, 204, 202, 1);
 
 
-    //*===SIZES
-    --primary-padding:0vw 14vw;
-    --medium-screen-padding:0vw 7vw;
-    --small-screen-padding:0vw 4vw;
+
+  //*=== GRADIENTS
+  --gradient_black:radial-gradient(100.58% 64.45% at 31.36% 23.67%, #636069 0%, #0A0A10 100%);
+  --gradient_dark_grey:radial-gradient(100.58% 64.45% at 31.36% 23.67%, #DBDADF 0%, #0A0A10 100%);
+  --gradient_blue:radial-gradient(100.58% 64.45% at 31.36% 23.67%, #DBDADF 0%, #3357FA 45.31%, #0A0A10 100%);
+  --gradient_blue_green:radial-gradient(100.58% 64.45% at 31.36% 23.67%, #00C775 0%, #4021FF 100%);
+  --gradient_red_purple: radial-gradient(100.58% 64.45% at 31.36% 23.67%, #FF3C36 0%, #4021FF 100%);
+  --gradient_red_yellow:radial-gradient(100.58% 64.45% at 31.36% 23.67%, #FEBA54 0%, #FF3C36 100%);
+  --gradient_green:radial-gradient(100.58% 64.45% at 31.36% 23.67%, #66E1BC 0%, #0DB56F 100%);
+
+
+
+
+  //*=== SHADOW
+  --shadow: 0px 2.767256498336792px 2.2138051986694336px rgba(0, 0, 0, 0),
+    0px 6.650102138519287px 5.32008171081543px rgba(0, 0, 0, 0.02),
+    0px 12.521552085876465px 10.017241477966309px rgba(0, 0, 0, 0.01),
+    0px 22.3363094329834px 17.869047164916992px rgba(0, 0, 0, 0.02),
+    0px 41.777610778808594px 33.422088623046875px rgba(0, 0, 0, 0.01),
+    0px 100px 80px rgba(0, 0, 0, 0.04);
+
+
+    //*=== FONT-FAMILY
+    --heebo:"Heebo";
+    --satoshi:"Satoshi"
 }
 
-$medium-screen:1024px;
-$small-screen:768px;
+
