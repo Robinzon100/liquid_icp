@@ -20,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger)
 //import{ fragment } from "./shaders/fragmentShader";
 //import{ vertex } from "./shaders/vertexShader";
 
+import { Pane } from "tweakpane"
 
 
 
@@ -28,7 +29,14 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 const Hero = () => {
+    const [ready, setReady] = useState(false)
+    const [loadedElements, setLoadedElements] = useState(0)
+    let _logo
+    let _town
+
     const [cursor,] = useState({ x: 0, y: 0 })
+
+
 
 
     useEffect(() => {
@@ -40,6 +48,47 @@ const Hero = () => {
 
 
     const init = () => {
+        const pane: any = new Pane();
+
+        const PARAMS = {
+            c_location_x: 1,
+            c_location_y: 5.9,
+            c_location_z: 0,
+            c_rotation_x: 0,
+            c_rotation_y: 7.8,
+            c_rotation_z: 0,
+        };
+
+        pane.addInput(
+            PARAMS, 'c_location_x',
+            { min: 0, max: 50, step: 0.1 },
+        );
+        pane.addInput(
+            PARAMS, 'c_location_y',
+            { min: 0, max: 50, step: 0.1 },
+        );
+        pane.addInput(
+            PARAMS, 'c_location_z',
+            { min: 0, max: 50, step: 0.1 },
+        );
+
+
+        pane.addInput(
+            PARAMS, 'c_rotation_x',
+            { min: 0, max: 50, step: 0.1 },
+        );
+        pane.addInput(
+            PARAMS, 'c_rotation_y',
+            { min: 0, max: 50, step: 0.1 },
+        );
+        pane.addInput(
+            PARAMS, 'c_rotation_z',
+            { min: 0, max: 50, step: 0.1 },
+        );
+
+
+
+
         //! TODO: get rid of leva 
         const canvas = document.querySelector(".landing_canvas") as HTMLElement;
 
@@ -72,15 +121,15 @@ const Hero = () => {
         const scene = new THREE.Scene();
         scene.background = new THREE.Color('#020305');
 
-        scene.fog = new THREE.Fog(0x000000, 10, 20);
+        // scene.fog = new THREE.Fog(0x000000, 10, 20);
 
 
 
 
         //============================ CAMERA
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
-        camera.position.set(0, -5, 0);
-        camera.rotation.set(5, 0, 0)
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 1000);
+        camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
+        camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z)
         scene.add(camera)
 
 
@@ -172,6 +221,8 @@ const Hero = () => {
 
 
 
+
+
         new RGBELoader().setPath("/hdr_textures/").load("HDRI.hdr", (hdrmap: any) => {
             let envmap = envmapLoader.fromCubemap(hdrmap)
             // scene.background = hdrmap;
@@ -193,7 +244,7 @@ const Hero = () => {
             const logoMaterial = new THREE.MeshStandardMaterial({
                 color: 0x000000,
                 // roughnessMap: roughnessMapTexture,
-                roughness: 0,
+                roughness: .19,
                 // normalMap: normalMapTexture,
                 // normalScale: new THREE.Vector2(0.2, 0.2),
                 emissive: 0x3357FA,
@@ -206,9 +257,7 @@ const Hero = () => {
             loader.load(
                 '/3d_models/test_test2.glb',
                 (gltf) => {
-                    scene.add(gltf.scene);
-
-
+                    gltf.scene.position.y = -5
                     gltf.scene.traverse((child: THREE.Object3D) => {
                         if ((child as THREE.Mesh).isMesh) {
                             (child as THREE.Mesh).material = townMatterial;
@@ -216,50 +265,83 @@ const Hero = () => {
                             (child as THREE.Mesh).receiveShadow = true;
                         }
                     })
+                    _town = gltf.scene
+                    scene.add(gltf.scene);
+                    initAnimation()
                 },
-                (xhr) => {
-                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                },
-                (error) => {
-                    console.error('An error happened');
-                    console.error(error);
-                }
             );
 
             loader.load(
                 '/3d_models/logo.glb',
                 (gltf) => {
-                    scene.add(gltf.scene);
-                    gltf.scene.position.set(0, 3, 0);
-                    gltf.scene.scale.set(2, 2, 2);
-
-
+                    _logo = gltf.scene
                     gltf.scene.traverse((child: THREE.Object3D) => {
                         if ((child as THREE.Mesh).isMesh) {
                             (child as THREE.Mesh).material = logoMaterial;
                             (child as THREE.Mesh).castShadow = true;
                             (child as THREE.Mesh).receiveShadow = true;
-                            console.log(child);
-                            
-                            
-                            gsap.to(child.rotation, {
-                                y: 10,
-                                duration: 10,
-                            })
                         }
                     })
+                    gltf.scene.position.set(0, 3, 0);
+                    gltf.scene.scale.set(2, 2, 2);
+                    scene.add(gltf.scene);
                 },
-                (xhr) => {
-                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                },
-                (error) => {
-                    console.error('An error happened');
-                    console.error(error);
-                }
             );
         })
 
 
+
+        const initAnimation = () => {
+            const tl = gsap.timeline()
+
+            tl.to(camera.position, {
+                x: 1.8,
+                y: 2.1,
+                z: 0.06,
+                duration: 3,
+                delay: 4,
+                ease: 'power4.out'
+            })
+
+            tl.add('start')
+            tl.to(camera.position, {
+                x: 4.6,
+                y: 2.0,
+                z: 15.7,
+                duration: 3,
+                ease: 'power1.out'
+            }, 'start')
+                // .to(camera, {
+                //     setFocalLength: 74,
+                //     duration: 3,
+                //     ease: 'power1.out'
+                // }, 'start')
+                .to(camera.rotation, {
+                    x: 0,
+                    y: 6.4,
+                    z: 0,
+                    duration: 4,
+                    ease: 'power1.out'
+                }, 'start')
+
+            // tl
+            tl.to(_town.position, {
+                y: 0,
+                duration: 2,
+                ease: 'power4.out'
+            })
+            // .to(camera.rotation, {
+            //     x: 0,
+            //     y: 6.3,
+            //     z: 0,
+            //     delay: .5,
+            //     duration: 3,
+            //     ease: 'power1.out'
+            // }, 'start')
+
+
+
+        }
 
 
 
@@ -297,14 +379,17 @@ const Hero = () => {
         })
 
 
-        const controls = new OrbitControls(camera, (canvas as HTMLElement));
-        controls.enableDamping = true
+        // const controls = new OrbitControls(camera, (canvas as HTMLElement));
+        // controls.enableDamping = true
 
 
 
         const animate = () => {
             requestAnimationFrame(animate);
-            controls.update();
+            // controls.update();
+            camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
+            camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z);
+
             composer.render();
 
             // renderer.clear();

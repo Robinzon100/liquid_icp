@@ -15,7 +15,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.42.1",
-    "three": "^0.133.0"
+    "three": "^0.133.0",
+    "tweakpane": "^3.0.5"
   },
   "devDependencies": {
     "@types/gsap": "^3.0.0",
