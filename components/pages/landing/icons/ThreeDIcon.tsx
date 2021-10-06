@@ -4,11 +4,11 @@ import { createScene } from './utils/scene.contoller';
 
 
 const ThreeDIcon: FC = () => {
-    const gltfModelPaths = [
-        '/3d_models/hex.glb',
-        '/3d_models/circle_with_orbit.glb',
-        '/3d_models/logo.glb',
-        '/3d_models/hex.glb'
+    const IconData = [
+        { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Bridge from Dfinity to EVM compatible blockchains" },
+        { placeholder: "/images/dowload.png", path: '/3d_models/circle_with_orbit.glb', text: "Participate in rich DeFi ecosystems" },
+        { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Get insurance on your ICP holdings" },
+        { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Lend, Borrow and earn 2x Rewards" }
     ]
 
 
@@ -19,18 +19,26 @@ const ThreeDIcon: FC = () => {
 
 
     const init = () => {
-        for (let i = 0; i < gltfModelPaths.length; i++) {
+        for (let i = 0; i < IconData.length; i++) {
             let { scene, renderer } = createScene(.2, `.three_d_icon_${i}`)
-            addGLFModel(scene, renderer, gltfModelPaths[i])
+            addGLFModel(scene, renderer, IconData[i].path, `.three_d_icon_${i}`)
         }
     }
 
     return (
         <>
             <div className="icons_container">
-                {gltfModelPaths.map((path, i) => (
-                    <canvas key={path} className={`three_d_icon_${i}`}></canvas>
-                ))}
+                <div className="dark-container">
+                    {IconData.map((icon, i) => (
+                        <div className="icon_container" key={i}>
+
+                            <canvas  className={`three_d_icon_${i} icon`} />
+                            <h1 className="heading">{icon.text}</h1>
+
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </>
     )

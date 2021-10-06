@@ -12,7 +12,7 @@
     height: 100%;
 }
 
-@mixin flex($justify-content,$align-items,$flex-direction) {
+@mixin flex($justify-content:center,$align-items:center,$flex-direction:column) {
     display: flex;
     justify-content: $justify-content;
     align-items: $align-items;
@@ -20,7 +20,7 @@
 }
 
 /// MIXING FOR BACKGROUNG PICS
-@mixin background-properties($background-image,$background-size,$background-position) {
+@mixin background-image($background-image,$background-size:cover,$background-position:center) {
     background-image: url($background-image);
     background-size: $background-size;
     background-position: $background-position;
