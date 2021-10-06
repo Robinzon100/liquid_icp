@@ -33,6 +33,11 @@ const Hero = () => {
     const [loadedElements, setLoadedElements] = useState(0)
     let _logo
     let _town
+    let _cameraLook = {
+        isLooking: true
+    }
+
+    const _globalTimeline = gsap.timeline()
 
     const [cursor,] = useState({ x: 0, y: 0 })
 
@@ -51,25 +56,26 @@ const Hero = () => {
         const pane: any = new Pane();
 
         const PARAMS = {
-            c_location_x: 1,
-            c_location_y: 5.9,
-            c_location_z: 0,
+            c_location_x: 9.5,
+            c_location_y: 6.45,
+            c_location_z: 8,
             c_rotation_x: 0,
-            c_rotation_y: 7.8,
+            c_rotation_y: 0,
             c_rotation_z: 0,
         };
 
+
         pane.addInput(
             PARAMS, 'c_location_x',
-            { min: 0, max: 50, step: 0.1 },
+            { min: -20, max: 50, step: 0.05 },
         );
         pane.addInput(
             PARAMS, 'c_location_y',
-            { min: 0, max: 50, step: 0.1 },
+            { min: -20, max: 50, step: 0.05 },
         );
         pane.addInput(
             PARAMS, 'c_location_z',
-            { min: 0, max: 50, step: 0.1 },
+            { min: -20, max: 50, step: 0.05 },
         );
 
 
@@ -127,9 +133,13 @@ const Hero = () => {
 
 
         //============================ CAMERA
-        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 1000);
-        camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
-        camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z)
+        const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.01, 1000);
+        camera.position.set(0, 1.10, -3.45);
+        camera.focus = 1;
+
+
+        // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
+        // camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z)
         scene.add(camera)
 
 
@@ -254,22 +264,6 @@ const Hero = () => {
                 side: THREE.DoubleSide,
             });
 
-            loader.load(
-                '/3d_models/test_test2.glb',
-                (gltf) => {
-                    gltf.scene.position.y = -5
-                    gltf.scene.traverse((child: THREE.Object3D) => {
-                        if ((child as THREE.Mesh).isMesh) {
-                            (child as THREE.Mesh).material = townMatterial;
-                            (child as THREE.Mesh).castShadow = true;
-                            (child as THREE.Mesh).receiveShadow = true;
-                        }
-                    })
-                    _town = gltf.scene
-                    scene.add(gltf.scene);
-                    initAnimation()
-                },
-            );
 
             loader.load(
                 '/3d_models/logo.glb',
@@ -282,9 +276,36 @@ const Hero = () => {
                             (child as THREE.Mesh).receiveShadow = true;
                         }
                     })
-                    gltf.scene.position.set(0, 3, 0);
+                    gltf.scene.position.set(0, 1, 0);
+                    gltf.scene.rotation.set(-1.5, 0, 0);
                     gltf.scene.scale.set(2, 2, 2);
+                    camera.lookAt(gltf.scene.position)
                     scene.add(gltf.scene);
+                    _globalTimeline.to(_logo.rotation, {
+                        z: Math.PI * 2,
+                        duration: 5,
+                        repeat: -1,
+                        ease: 'none'
+                    })
+
+                    if (scene.children[2].type == 'Group') {
+                        loader.load(
+                            '/3d_models/test_test2.glb',
+                            (gltf) => {
+                                gltf.scene.position.y = -10
+                                gltf.scene.traverse((child: THREE.Object3D) => {
+                                    if ((child as THREE.Mesh).isMesh) {
+                                        (child as THREE.Mesh).material = townMatterial;
+                                        (child as THREE.Mesh).castShadow = true;
+                                        (child as THREE.Mesh).receiveShadow = true;
+                                    }
+                                })
+                                _town = gltf.scene
+                                scene.add(gltf.scene);
+                                initAnimation()
+                            },
+                        );
+                    }
                 },
             );
         })
@@ -295,41 +316,66 @@ const Hero = () => {
             const tl = gsap.timeline()
 
             tl.to(camera.position, {
-                x: 1.8,
-                y: 2.1,
-                z: 0.06,
+                x: 0,
+                y: 2.0,
+                z: 0,
                 duration: 3,
                 delay: 4,
                 ease: 'power4.out'
-            })
-
-            tl.add('start')
-            tl.to(camera.position, {
-                x: 4.6,
-                y: 2.0,
-                z: 15.7,
+            }).to(_town.position, {
+                y: -1,
+                duration: 1,
+                ease: 'power4.out'
+            }).to(camera.position, {
+                y: 6.0,
+                x: 0,
+                z: 0,
                 duration: 3,
-                ease: 'power1.out'
-            }, 'start')
-                // .to(camera, {
-                //     setFocalLength: 74,
-                //     duration: 3,
-                //     ease: 'power1.out'
-                // }, 'start')
-                .to(camera.rotation, {
-                    x: 0,
-                    y: 6.4,
-                    z: 0,
-                    duration: 4,
-                    ease: 'power1.out'
-                }, 'start')
-
-            // tl
-            tl.to(_town.position, {
-                y: 0,
-                duration: 2,
+                delay: 1,
                 ease: 'power4.out'
             })
+
+        
+
+            tl.add('final_scenes')
+            tl.to(camera.rotation.set, {
+                    y: 1.1,
+                    // x: 9.5,
+                    // z: 8,
+                    duration: 3,
+                    delay: 1,
+                    ease: 'power4.out'
+                }, 'final_scenes')
+
+
+
+            // tl.add('start')
+            // tl.to(camera.position, {
+            //     x: 4.6,
+            //     y: 2.0,
+            //     z: 15.7,
+            //     duration: 3,
+            //     ease: 'power1.out'
+            // }, 'start')
+            //     // .to(camera, {
+            //     //     setFocalLength: 74,
+            //     //     duration: 3,
+            //     //     ease: 'power1.out'
+            //     // }, 'start')
+            //     .to(camera.rotation, {
+            //         x: 0,
+            //         y: 6.4,
+            //         z: 0,
+            //         duration: 4,
+            //         ease: 'power1.out'
+            //     }, 'start')
+
+            // // tl
+            // tl.to(_town.position, {
+            //     y: 0,
+            //     duration: 2,
+            //     ease: 'power4.out'
+            // })
             // .to(camera.rotation, {
             //     x: 0,
             //     y: 6.3,
@@ -386,12 +432,15 @@ const Hero = () => {
 
         const animate = () => {
             requestAnimationFrame(animate);
+            if (scene.children[2] && _cameraLook.isLooking) {
+                camera.lookAt(scene.children[2].position)
+            }
+
             // controls.update();
-            camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
-            camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z);
+            // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
+            // camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z);
 
             composer.render();
-
             // renderer.clear();
             // const elapsedTime = clock.getElapsedTime();
             // renderer.render(scene, camera);
