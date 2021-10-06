@@ -1,14 +1,8 @@
 // import Hero from "components/pages/landing/hero/Hero.landin";
-<<<<<<< HEAD
-import Hero from "components/pages/landing/hero/Hero.landin";
-import ThreeDIcon from "components/pages/landing/icons/SingleIcon";
-import ColorDisplacement from "components/pages/ColorDisplacement/ColorDisplacement";
-=======
 // import Hero from "components/pages/landing/hero/Hero.landin";
 // import ThreeDIcon from "components/pages/landing/icons/ThreeDIcon";
 import dynamic from "next/dynamic";
 const ThreeDIcon = dynamic(() => import('../components/pages/landing/icons/ThreeDIcon'), { ssr: false });
->>>>>>> 22b280acae26aa44227b9deb0dde99fb10ca7852
 
 const imagesArray = [
     {
