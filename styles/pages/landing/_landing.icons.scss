@@ -1,0 +1,10 @@
+.icons_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    canvas {
+        width: 300px !important;
+        height: 300px !important;
+    }
+}

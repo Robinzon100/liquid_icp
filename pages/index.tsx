@@ -1,14 +1,16 @@
 // import Hero from "components/pages/landing/hero/Hero.landin";
-import Hero from "components/pages/landing/hero/Hero.landin";
-import ThreeDIcon from "components/pages/landing/icons/SingleIcon";
+// import Hero from "components/pages/landing/hero/Hero.landin";
+// import ThreeDIcon from "components/pages/landing/icons/ThreeDIcon";
+import dynamic from "next/dynamic";
+const ThreeDIcon = dynamic(() => import('../components/pages/landing/icons/ThreeDIcon'), { ssr: false });
 
 
 
 const index = () => {
   return (
     <>
-      <Hero />
-      {/* <ThreeDIcon gltfModelPath='/3d_models/circle_with_orbit.glb' /> */}
+      {/* <Hero /> */}
+      <ThreeDIcon />
     </>
   );
 };
