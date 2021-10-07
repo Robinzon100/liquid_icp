@@ -48,7 +48,7 @@ const Hero = () => {
 
 
     useEffect(() => {
-        // init();
+        init();
     }, []);
 
 
@@ -123,6 +123,7 @@ const Hero = () => {
         const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--black_-1')
 
         // scene.background = new THREE.Color('#00000000');
+        scene.background = new THREE.Color('#000000');
 
         // scene.fog = new THREE.Fog(0x000000, 10, 20);
 
