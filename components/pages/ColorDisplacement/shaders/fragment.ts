@@ -32,9 +32,9 @@ export const rgbFs = () => {
             vec2 textureCoords = vTextureCoord;
             
             // These contils colors and how muct it will strech
-            vec2 redTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 500.0);
-            vec2 greenTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 800.0);
-            vec2 blueTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 1000.0);
+            vec2 redTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 400.0);
+            vec2 greenTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 500.0);
+            vec2 blueTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 600.0);
     
             vec4 red = texture2D(uRenderTexture, redTextCoords);
             vec4 green = texture2D(uRenderTexture, greenTextCoords);

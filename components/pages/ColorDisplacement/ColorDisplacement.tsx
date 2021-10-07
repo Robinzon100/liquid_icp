@@ -24,22 +24,22 @@ const ColorDisplacement = ({ imagesArray }) => {
         })
 
         curtains.onRender(() => {
-            scrollEffect = curtains.lerp(scrollEffect, 0, 0.05);
+            scrollEffect = curtains.lerp(scrollEffect, 0, 0.08);
         }).onScroll(() => {
             const delta = curtains.getScrollDeltas();
     
             delta.y = -delta.y;
     
             // threshold
-            if (delta.y > 50) {
-                delta.y = 50;
+            if (delta.y > 40) {
+                delta.y = 40;
             }
-            else if (delta.y < -50) {
-                delta.y = -50;
+            else if (delta.y < -40) {
+                delta.y = -40;
             }
     
             if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
-                scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.05);
+                scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.8);
             }
     
         }).onError(() => {
@@ -136,6 +136,7 @@ const ColorDisplacement = ({ imagesArray }) => {
                                     <div className="plane">
                                         <img src={el.image} crossOrigin="" data-sampler="planeTexture" alt="pic" />
                                     </div>
+                                    <h1 className="displacement_title">{el.title}</h1>
                                 </div>
                             </div>
                         ))}

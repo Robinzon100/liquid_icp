@@ -77,12 +77,6 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
 
 
-
-    canvas.addEventListener('click', () => {
-        console.log(scene.children);
-    })
-
-
     //============================ RESIZE
     window.addEventListener("resize", () => {
         // if (window.innerWidth > 400) {
