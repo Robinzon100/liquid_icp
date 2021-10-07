@@ -6,10 +6,10 @@ import { createScene } from './utils/scene.contoller';
 
 const ThreeDIcon: FC = () => {
     const IconData = [
-        { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Bridge from Dfinity to EVM compatible blockchains" },
+        { placeholder: "/images/dowload.png", path: '/3d_models/circle.glb', text: "Bridge from Dfinity to EVM compatible blockchains" },
         { placeholder: "/images/dowload.png", path: '/3d_models/circle_with_orbit.glb', text: "Participate in rich DeFi ecosystems" },
-        { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Get insurance on your ICP holdings" },
-        { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Lend, Borrow and earn 2x Rewards" }
+        { placeholder: "/images/dowload.png", path: '/3d_models/cube.glb', text: "Get insurance on your ICP holdings" },
+        { placeholder: "/images/dowload.png", path: '/3d_models/2x.glb', text: "Lend, Borrow and earn 2x Rewards" }
     ]
 
 

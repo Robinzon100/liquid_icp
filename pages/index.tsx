@@ -41,7 +41,7 @@ const index = () => {
         <>
             <Hero />
             <ThreeDIcon />
-            {/* <ColorDisplacement imagesArray={imagesArray} /> */}
+            <ColorDisplacement imagesArray={imagesArray} />
         </>
     );
 };

@@ -489,6 +489,7 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
+<<<<<<< HEAD
                 <div className="hero_landing_container">
                     <canvas className="hero_landing_canvas" />
 
@@ -520,6 +521,31 @@ const Hero = () => {
                     </div>
 
                 </div>
+=======
+                <canvas className="landing_canvas" />
+
+                
+                {/* <Button
+                    size={5}
+                    textColor="var(--white_-1)"
+                    bgColor="var(--red_hero_btn_gradient)"
+                    className="red_hero_btn "
+                    boxShadow="var(--red_hero_btn_shadow)"
+                >
+                    join LICP Airdrop
+                </Button>
+
+                <Button
+                    size={5}
+                    textColor="var(--white_-1)"
+                    bgColor="#0A0A0C"
+                    className="red_hero_btn "
+                    boxShadow="var(--black_hero_btn_shadow)"
+                    border="0.5px solid rgba(255, 255, 255, 0.12)"
+                >
+                    s-Bridge Now
+                </Button> */}
+>>>>>>> fdfdd82ac3dd611e83c51432a79016f41bbc6195
             </div>
         </>
     )
