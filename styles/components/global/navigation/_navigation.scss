@@ -39,6 +39,8 @@
       .item {
         @include flex(initial, center, row);
         width: 72%;
+      transform: translateX(5%);
+
 
         :not(:first-child) {
           margin-left: 2rem;
@@ -48,7 +50,8 @@
           cursor: pointer;
 
           h1 {
-            font-family: var(--he);
+            font-family: 'Heebo';
+            font-weight: 300;
             opacity: 80%;
 
             &:hover {

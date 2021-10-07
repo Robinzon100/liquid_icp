@@ -25,6 +25,7 @@ import { Pane } from "tweakpane"
 
 // COMPONENETS
 import Button from "components/lib/button/Button"
+import Loading from '../../../global/Loading/Loading';
 
 
 
@@ -56,7 +57,7 @@ const Hero = () => {
 
 
     const init = () => {
-        const pane: any = new Pane();
+        // const pane: any = new Pane();
 
         const PARAMS = {
             c_location_x: 9.5,
@@ -68,32 +69,32 @@ const Hero = () => {
         };
 
 
-        pane.addInput(
-            PARAMS, 'c_location_x',
-            { min: -20, max: 50, step: 0.05 },
-        );
-        pane.addInput(
-            PARAMS, 'c_location_y',
-            { min: -20, max: 50, step: 0.05 },
-        );
-        pane.addInput(
-            PARAMS, 'c_location_z',
-            { min: -20, max: 50, step: 0.05 },
-        );
+        // pane.addInput(
+        //     PARAMS, 'c_location_x',
+        //     { min: -20, max: 50, step: 0.05 },
+        // );
+        // pane.addInput(
+        //     PARAMS, 'c_location_y',
+        //     { min: -20, max: 50, step: 0.05 },
+        // );
+        // pane.addInput(
+        //     PARAMS, 'c_location_z',
+        //     { min: -20, max: 50, step: 0.05 },
+        // );
 
 
-        pane.addInput(
-            PARAMS, 'c_rotation_x',
-            { min: -10, max: 10, step: 0.01 },
-        );
-        pane.addInput(
-            PARAMS, 'c_rotation_y',
-            { min: -10, max: 10, step: 0.01 },
-        );
-        pane.addInput(
-            PARAMS, 'c_rotation_z',
-            { min: -10, max: 10, step: 0.01 },
-        );
+        // pane.addInput(
+        //     PARAMS, 'c_rotation_x',
+        //     { min: -10, max: 10, step: 0.01 },
+        // );
+        // pane.addInput(
+        //     PARAMS, 'c_rotation_y',
+        //     { min: -10, max: 10, step: 0.01 },
+        // );
+        // pane.addInput(
+        //     PARAMS, 'c_rotation_z',
+        //     { min: -10, max: 10, step: 0.01 },
+        // );
 
 
 
@@ -278,6 +279,14 @@ const Hero = () => {
                                 scene.add(gltf.scene);
 
                                 setTimeout(() => {
+                                    gsap.fromTo('.loading',
+                                        {
+                                            opacity: 1
+                                        },
+                                        {
+                                            duration: 2,
+                                            opacity: 0
+                                        })
                                     initAnimation()
                                 }, 3000);
                             },
@@ -489,7 +498,7 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
-<<<<<<< HEAD
+                <Loading />
                 <div className="hero_landing_container">
                     <canvas className="hero_landing_canvas" />
 
@@ -521,31 +530,6 @@ const Hero = () => {
                     </div>
 
                 </div>
-=======
-                <canvas className="landing_canvas" />
-
-                
-                {/* <Button
-                    size={5}
-                    textColor="var(--white_-1)"
-                    bgColor="var(--red_hero_btn_gradient)"
-                    className="red_hero_btn "
-                    boxShadow="var(--red_hero_btn_shadow)"
-                >
-                    join LICP Airdrop
-                </Button>
-
-                <Button
-                    size={5}
-                    textColor="var(--white_-1)"
-                    bgColor="#0A0A0C"
-                    className="red_hero_btn "
-                    boxShadow="var(--black_hero_btn_shadow)"
-                    border="0.5px solid rgba(255, 255, 255, 0.12)"
-                >
-                    s-Bridge Now
-                </Button> */}
->>>>>>> fdfdd82ac3dd611e83c51432a79016f41bbc6195
             </div>
         </>
     )
