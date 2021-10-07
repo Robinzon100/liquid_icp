@@ -57,6 +57,10 @@ body {
             color: white
         }
     }
+
+    h1,h2,h3,p {
+        color:var(--white_1);
+    }
 }
 
 ul[class],

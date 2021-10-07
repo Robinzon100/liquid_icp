@@ -1,0 +1,10 @@
+.loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black_-1);
+    @include flex();
+
+    .heading {
+        color: var(--white);
+    }
+}

@@ -1,3 +1,4 @@
+import Navigation from "components/global/navigation/Navigation";
 import type { AppProps } from "next/app";
 
 import "../styles/main.scss";
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }:AppProps) {
         ogDescription="cutting edge technology to create true technical beauty of the future"
         ogImagePath="/meta_images/og_image.png"
       /> */}
+      <Navigation/>
       <Component {...pageProps} />
     </>
   );
