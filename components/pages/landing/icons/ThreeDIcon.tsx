@@ -3,6 +3,7 @@ import { addGLFModel } from './utils/mesh.controller';
 import { createScene } from './utils/scene.contoller';
 
 
+
 const ThreeDIcon: FC = () => {
     const IconData = [
         { placeholder: "/images/dowload.png", path: '/3d_models/hex.glb', text: "Bridge from Dfinity to EVM compatible blockchains" },
@@ -38,6 +39,7 @@ const ThreeDIcon: FC = () => {
                         </div>
                     ))}
                 </div>
+                    
 
             </div>
         </>

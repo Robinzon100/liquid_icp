@@ -23,6 +23,9 @@ gsap.registerPlugin(ScrollTrigger)
 import { Pane } from "tweakpane"
 
 
+// COMPONENETS
+import Button from "components/lib/button/Button"
+
 
 
 
@@ -45,7 +48,7 @@ const Hero = () => {
 
 
     useEffect(() => {
-        init();
+        // init();
     }, []);
 
 
@@ -459,6 +462,28 @@ const Hero = () => {
         <>
             <div className="hero_landing_main">
                 <canvas className="landing_canvas" />
+
+                
+                {/* <Button
+                    size={5}
+                    textColor="var(--white_-1)"
+                    bgColor="var(--red_hero_btn_gradient)"
+                    className="red_hero_btn "
+                    boxShadow="var(--red_hero_btn_shadow)"
+                >
+                    join LICP Airdrop
+                </Button>
+
+                <Button
+                    size={5}
+                    textColor="var(--white_-1)"
+                    bgColor="#0A0A0C"
+                    className="red_hero_btn "
+                    boxShadow="var(--black_hero_btn_shadow)"
+                    border="0.5px solid rgba(255, 255, 255, 0.12)"
+                >
+                    s-Bridge Now
+                </Button> */}
             </div>
         </>
     )

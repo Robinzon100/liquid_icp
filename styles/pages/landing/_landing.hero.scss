@@ -1,3 +1,16 @@
 .hero_landing_main{
     overflow: hidden;
+
+    .red_hero_btn{
+        width: 12rem;
+        font-size: $f-size-p3;
+        padding: .5rem;
+        border-radius: 13px;
+    }
+
+    .black_hero_btn {
+        border: 0.5px solid rgba(255, 255, 255, 0.12);
+        border-radius: 13px;
+    }
 }
+
