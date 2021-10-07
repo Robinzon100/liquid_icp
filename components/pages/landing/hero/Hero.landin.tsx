@@ -443,7 +443,6 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
-                asdf
                 <canvas className="landing_canvas" />
 
                 

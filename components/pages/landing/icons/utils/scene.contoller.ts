@@ -59,7 +59,7 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
     //============================ CAMERA
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.width, 0.01, 1000);
-    camera.position.set(0, 0, .6);
+    camera.position.set(0, 0, .7);
     scene.add(camera)
 
 
