@@ -84,15 +84,15 @@ const Hero = () => {
 
         pane.addInput(
             PARAMS, 'c_rotation_x',
-            { min: 0, max: 50, step: 0.1 },
+            { min: -10, max: 10, step: 0.01 },
         );
         pane.addInput(
             PARAMS, 'c_rotation_y',
-            { min: 0, max: 50, step: 0.1 },
+            { min: -10, max: 10, step: 0.01 },
         );
         pane.addInput(
             PARAMS, 'c_rotation_z',
-            { min: 0, max: 50, step: 0.1 },
+            { min: -10, max: 10, step: 0.01 },
         );
 
 
@@ -109,26 +109,20 @@ const Hero = () => {
 
         const postProcessingParams = {
             exposure: 5,
-            bloomStrength: 0.3,
+            bloomStrength: 0.5,
             bloomThreshold: 0,
-            bloomRadius: 1
+            bloomRadius: 1.2
         };
 
 
-
-        //============================ RENDERER
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.outputEncoding = THREE.sRGBEncoding;
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.25;
-        renderer.setSize(sizes.width, sizes.height);
 
 
 
         //============================ SCENE
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color('#020305');
+        const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--black_-1')
+
+        // scene.background = new THREE.Color('#00000000');
 
         // scene.fog = new THREE.Fog(0x000000, 10, 20);
 
@@ -147,11 +141,26 @@ const Hero = () => {
 
 
 
+        //============================ RENDERER
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, premultipliedAlpha: false, })
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.25;
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setClearColor(0x000000, 0);
+
+        let parameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, stencilBuffer: false };
+        let renderTarget = new THREE.WebGLRenderTarget(sizes.width, sizes.height, parameters);
 
 
         //============================ POSTPROCESSING 
-        let composer = new EffectComposer(renderer);
+        let composer = new EffectComposer(renderer, renderTarget);
         const renderPass = new RenderPass(scene, camera);
+        renderPass.clear = false
+        renderPass.clearAlpha = 0
+
+
         composer.addPass(renderPass);
         const renderScene = new RenderPass(scene, camera);
 
@@ -165,49 +174,11 @@ const Hero = () => {
         composer.addPass(bloomPass);
 
 
-        // const bokehPass = new BokehPass(scene, camera, {
-        //     focus: 0.15,
-        //     aperture: 0.025,
-        //     maxblur: 0.01,
-
-        //     width: window.innerWidth,
-        //     height: window.innerHeight
-        // });
-        // composer.addPass(renderPass);
-        // composer.addPass(bokehPass);
-
-
-
-
-
 
 
 
 
         //============================ LIGHT
-        // const light = new THREE.DirectionalLight(0x1253FE, 5);
-        // light.position.set(0, 1, 0); //default; light shining from top
-        // light.castShadow = true; // default false
-        // scene.add(light);
-
-
-        // let pointLigtht1 = new THREE.PointLight(0xE05289, 10);
-        // pointLigtht1.position.set(10, 10, 10);
-        // pointLigtht1.castShadow = true
-        // scene.add(pointLigtht1)
-
-        // let pointLigtht2 = new THREE.PointLight(0x3357FA, 10);
-        // pointLigtht2.position.set(-10, 5, 0);
-        // pointLigtht2.castShadow = true
-        // scene.add(pointLigtht2)
-
-        // let pointLigtht3 = new THREE.PointLight(0x3357FA, 10);
-        // pointLigtht3.position.set(0, 5, 0);
-        // pointLigtht3.castShadow = true
-        // pointLigtht3.scale.set(10, 0, 10);
-
-        // scene.add(pointLigtht3)
-
         var lighth = new THREE.HemisphereLight(0xf6e86d, 0x404040, 15);
         scene.add(lighth);
 
@@ -282,7 +253,7 @@ const Hero = () => {
                     gltf.scene.position.set(0, 1, 0);
                     gltf.scene.rotation.set(-1.5, 0, 0);
                     gltf.scene.scale.set(2, 2, 2);
-                    camera.lookAt(gltf.scene.position)
+                    // camera.lookAt(gltf.scene.position)
                     scene.add(gltf.scene);
                     _globalTimeline.to(_logo.rotation, {
                         z: Math.PI * 2,
@@ -338,16 +309,32 @@ const Hero = () => {
                 ease: 'power4.out'
             })
 
-        
+
+            setTimeout(() => {
+                _logo.rotation.z = 0
+                _globalTimeline.kill()
+            }, 8000);
+
+
 
             tl.add('final_scenes')
-            tl.to(camera.rotation.set, {
-                    y: 1.1,
-                    // x: 9.5,
-                    // z: 8,
+            tl.to(camera.position, {
+                x: 6.85,
+                y: 1.10,
+                z: 11.10,
+                duration: 3,
+                delay: 1,
+                ease: 'power4.out'
+            }, 'final_scenes')
+                .to(camera.rotation.set, {
+                    y: 1,
                     duration: 3,
-                    delay: 1,
                     ease: 'power4.out'
+                }, 'final_scenes')
+                .to(scene.position, {
+                    x: 15,
+                    delay: 2.5,
+                    duration: 2,
                 }, 'final_scenes')
 
 
@@ -397,11 +384,6 @@ const Hero = () => {
 
 
 
-        // const glitchPass = new GlitchPass();
-        // composer.addPass(glitchPass);
-
-
-
 
 
         //============================ RESIZE
@@ -444,9 +426,9 @@ const Hero = () => {
             // camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z);
 
             composer.render();
+            // renderer.render(scene, camera);
             // renderer.clear();
             // const elapsedTime = clock.getElapsedTime();
-            // renderer.render(scene, camera);
         }
         animate()
         renderer.clear();
@@ -461,6 +443,7 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
+                asdf
                 <canvas className="landing_canvas" />
 
                 
