@@ -1,0 +1,62 @@
+.navigation {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+
+
+
+  .navigation_container {
+    //   width: 100%;
+    //   max-width: 20rem;
+    padding: 2rem 10vw;
+
+    .logo {
+        cursor: pointer;
+      position: relative;
+      width: 4.5rem;
+      height: 4.5rem;
+      @include background-image("/svg/logo.svg", contain);
+      z-index: 2;
+
+      &:after {
+        z-index: 1;
+        @include after;
+        @include background-image("/svg/logo.svg", contain);
+        width: 4.5rem;
+        height: 4.5rem;
+        top: 20%;
+        filter: blur(25px);
+      }
+    }
+
+
+
+
+    .navigation_items {
+      width: 100%;
+      @include flex(space-between, center, row);
+
+      .item {
+        @include flex(initial, center, row);
+        width: 72%;
+
+        :not(:first-child) {
+          margin-left: 2rem;
+        }
+
+        .links {
+          cursor: pointer;
+
+          h1 {
+            font-family: var(--he);
+            opacity: 80%;
+
+            &:hover {
+              opacity: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

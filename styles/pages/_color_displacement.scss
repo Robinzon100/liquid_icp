@@ -5,7 +5,8 @@
 
 #page-wrap {
   position: relative;
-  padding: 2rem;
+  padding: 2rem 10vw;
+  margin-top: 12rem;
 }
 
 /*** canvas ***/
@@ -25,7 +26,7 @@
 #content {
   position: relative;
   z-index: 15;
-  max-width: 1620px;
+//   max-width: 1520px;
   width: 100%;
   margin: 0 auto;
   //   padding: 40px 0 0 0;

@@ -6,10 +6,10 @@ import { createScene } from './utils/scene.contoller';
 
 const ThreeDIcon: FC = () => {
     const IconData = [
-        { placeholder: "/images/dowload.png", path: '/3d_models/circle.glb', text: "Bridge from Dfinity to EVM compatible blockchains" },
-        { placeholder: "/images/dowload.png", path: '/3d_models/circle_with_orbit.glb', text: "Participate in rich DeFi ecosystems" },
-        { placeholder: "/images/dowload.png", path: '/3d_models/cube.glb', text: "Get insurance on your ICP holdings" },
-        { placeholder: "/images/dowload.png", path: '/3d_models/2x.glb', text: "Lend, Borrow and earn 2x Rewards" }
+        { placeholder: "/images/circle.png", path: '/3d_models/circle.glb', text: "Bridge from Dfinity to EVM compatible blockchains" },
+        { placeholder: "/images/circle_inside_ball.png", path: '/3d_models/circle_with_orbit.glb', text: "Participate in rich DeFi ecosystems" },
+        { placeholder: "/images/cube.png", path: '/3d_models/cube.glb', text: "Get insurance on your ICP holdings" },
+        { placeholder: "/images/triangle.png", path: '/3d_models/2x.glb', text: "Lend, Borrow and earn 2x Rewards" }
     ]
 
 
@@ -33,7 +33,12 @@ const ThreeDIcon: FC = () => {
                     {IconData.map((icon, i) => (
                         <div className="icon_container" key={i}>
 
-                            <canvas  className={`three_d_icon_${i} icon`} />
+                            <canvas  className={`three_d_icon_${i} icon`} 
+                                // style={{backgroundImage:`url(${icon.placeholder})`,
+                                // backgroundRepeat:"none",
+                                // backgroundSize:"cover"}} 
+                            />
+
                             <h1 className="heading">{icon.text}</h1>
 
                         </div>

@@ -15,7 +15,6 @@
 
 
 
-
 //* ================ PAGE
 @import "pages/landing/landing.hero";
 @import "pages/landing/landing.icons";
@@ -24,4 +23,6 @@
 
 //* ================ COMPONENTS
 @import "components/global/navigation/navigation";
+@import "components/global/loading";
+
 
