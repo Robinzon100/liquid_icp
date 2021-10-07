@@ -38,7 +38,7 @@ export const addGLFModel = (
         const normalMapTexture = new THREE.TextureLoader().load('/textures/Plane_normal.png')
         const logoMaterial = new THREE.MeshStandardMaterial({
             color: 0x000000,
-            metalnessMap: roughnessMapTexture,
+            // metalnessMap: roughnessMapTexture,
             roughness: 0.21,
             normalMap: normalMapTexture,
             normalScale: new THREE.Vector2(0.2, 0.2),

@@ -11,16 +11,16 @@ interface props {
     style?: CSSProperties
     onClick?: MouseEventHandler,
     onHover?: MouseEventHandler
-    bgColor?:string
-    border?:string
-    boxShadow?:string
+    bgColor?: string
+    border?: string
+    boxShadow?: string
 }
 
 
 
 const Button: FC<props> = ({
     size = 1,
-    textColor = 'var(--black)',
+    textColor = 'var(--white_-1)',
     className,
     id,
     disabled = false,
@@ -29,7 +29,7 @@ const Button: FC<props> = ({
     style,
     bgColor,
     border,
-    boxShadow,
+    boxShadow = 'var(--btn_shadow)',
     // onClick,
     onHover }) => {
 
@@ -43,7 +43,7 @@ const Button: FC<props> = ({
                 // onClick={(e) => !disabled && onClick(e)}
                 onMouseOver={onHover}
                 style={style}>
-                <div className={`button_container ${ctaMode && 'cta_mode' } ${className}`}>
+                <div className={`button_container ${ctaMode && 'cta_mode'}`}>
                     {children}
                 </div>
             </button>
@@ -70,7 +70,7 @@ const Button: FC<props> = ({
                 .button_container{
                     pointer-events: ${disabled && 'none'};
                     cursor: ${disabled ? 'not-allowed' : 'pointer'};
-                    /* padding: calc(${size} * .38vw) calc(${size} * 1.1vw); */
+                    padding: calc(${size} * .38vw) calc(${size} * 1.1vw);
                     border: 1px solid #ffffff00;
                     display: flex;
                     justify-content: space-between;
@@ -83,22 +83,22 @@ const Button: FC<props> = ({
                     /* backdrop-filter: blur(28px); */
                     transition: all .2s ease;
                     user-select: none;
+                    border-radius: 14px;
                 }
 
 
 
-                /* .button:focus { outline: none; }
-                .button:hover .button_container{
-                    backdrop-filter: blur(14px);
-                    filter: saturation(20px);
+                .button:focus { outline: none; }
+                .button:hover{
+                    filter: saturate(3.5);
                     transform: translateY(-3%);
-                    box-shadow: 0px 45px 50px -10px rgba(0, 0, 0, .28), inset 0px 0px 14px #FFFFFF !important;
-                } */
+                    box-shadow: inset 0px 7px 11px 0px rgb(255 255 255 / 2%) !important;
+                }
 
-                /* .button:active .button_container{
+                .button:active{
                     transform: translateY(0%) !important;
-                    box-shadow: 0px 18px 25px -10px rgba(0, 0, 0, .35), inset 0px 0px 14px #FFFFFF !important;
-                } */
+                    box-shadow: inset 0px 5px 11px 0px rgb(255 255 255 / 2%) !important;
+                }
 
 
 

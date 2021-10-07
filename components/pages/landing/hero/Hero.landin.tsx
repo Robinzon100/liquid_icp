@@ -99,7 +99,7 @@ const Hero = () => {
 
 
         //! TODO: get rid of leva 
-        const canvas = document.querySelector(".landing_canvas") as HTMLElement;
+        const canvas = document.querySelector(".hero_landing_canvas") as HTMLElement;
 
 
         const sizes = {
@@ -131,7 +131,7 @@ const Hero = () => {
 
 
 
-        
+
 
 
         //============================ CAMERA
@@ -218,13 +218,13 @@ const Hero = () => {
             // scene.environment = hdrmap;
 
             // const roughnessMapTexture = new THREE.TextureLoader().load('/textures/rought.png')
-            const normalMapTexture = new THREE.TextureLoader().load('/textures/Plane_normal.png')
+            const normalMapTexture = new THREE.TextureLoader().load('/textures/normals.jpg')
             const townMatterial = new THREE.MeshStandardMaterial({
                 color: 0x000000,
                 // roughnessMap: roughnessMapTexture,
-                roughness: 0.31,
+                roughness: 0.19,
                 normalMap: normalMapTexture,
-                normalScale: new THREE.Vector2(0.8, 0.8),
+                normalScale: new THREE.Vector2(0.18, 0.18),
                 envMap: envmap.texture,
                 envMapIntensity: 10,
                 side: THREE.DoubleSide,
@@ -260,16 +260,11 @@ const Hero = () => {
                     gltf.scene.scale.set(2, 2, 2);
                     // camera.lookAt(gltf.scene.position)
                     scene.add(gltf.scene);
-                    _globalTimeline.to(_logo.rotation, {
-                        z: Math.PI * 2,
-                        duration: 5,
-                        repeat: -1,
-                        ease: 'none'
-                    })
+
 
                     if (scene.children[2].type == 'Group') {
                         loader.load(
-                            '/3d_models/test_test2.glb',
+                            '/3d_models/test_test3.glb',
                             (gltf) => {
                                 gltf.scene.position.y = -10
                                 gltf.scene.traverse((child: THREE.Object3D) => {
@@ -281,7 +276,10 @@ const Hero = () => {
                                 })
                                 _town = gltf.scene
                                 scene.add(gltf.scene);
-                                initAnimation()
+
+                                setTimeout(() => {
+                                    initAnimation()
+                                }, 3000);
                             },
                         );
                     }
@@ -294,13 +292,19 @@ const Hero = () => {
         const initAnimation = () => {
             const tl = gsap.timeline()
 
-            tl.to(camera.position, {
+            tl.to(_logo.rotation, {
+                x: -1.5,
+                y: 0,
+                z: Math.PI,
+                duration: 3,
+                ease: 'none'
+            }).to(camera.position, {
                 x: 0,
                 y: 2.0,
                 z: 0,
                 duration: 3,
-                delay: 4,
-                ease: 'power4.out'
+                delay: 3,
+                ease: 'power1.out'
             }).to(_town.position, {
                 y: -1,
                 duration: 1,
@@ -309,7 +313,7 @@ const Hero = () => {
                 y: 6.0,
                 x: 0,
                 z: 0,
-                duration: 3,
+                duration: 4,
                 delay: 1,
                 ease: 'power4.out'
             })
@@ -317,30 +321,67 @@ const Hero = () => {
 
             setTimeout(() => {
                 _logo.rotation.z = 0
-                _globalTimeline.kill()
+                // _globalTimeline.kill()
             }, 8000);
 
 
 
             tl.add('final_scenes')
-            tl.to(camera.position, {
-                x: 6.85,
-                y: 1.10,
-                z: 11.10,
+            tl.to(camera.rotation, {
+                y: 1,
                 duration: 3,
                 delay: 1,
-                ease: 'power4.out'
+                ease: 'none'
             }, 'final_scenes')
-                .to(camera.rotation.set, {
-                    y: 1,
+                .to(camera.position, {
+                    x: 6.85,
+                    y: 1.10,
+                    z: 11.10,
                     duration: 3,
-                    ease: 'power4.out'
+                    ease: 'none'
                 }, 'final_scenes')
+
                 .to(scene.position, {
                     x: 15,
-                    delay: 2.5,
+                    delay: 2,
                     duration: 2,
                 }, 'final_scenes')
+                .fromTo('.animate_UI', {
+                    x: 15,
+                    opacity: 0,
+                }, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1,
+                })
+
+            tl.add('logo')
+            tl.to(_logo.rotation, {
+                x: 0,
+                duration: 2
+            }, 'logo')
+                .to(_logo.position, {
+                    y: 3,
+                    duration: 1
+                }, 'logo')
+
+
+            // tl.to(_logo.rotation, {
+            //     x: 1,
+            //     duration: 10,                
+            //     repeat: -1
+            // })
+
+            tl.fromTo(_logo.rotation, {
+                y: 0,
+            }, {
+                y: Math.PI * 2,
+                duration: 8,
+                repeat: -1,
+                ease: 'none',
+            })
+
+
 
 
 
@@ -448,30 +489,37 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
-                asdf
-                <canvas className="landing_canvas" />
+                <div className="hero_landing_container">
+                    <canvas className="hero_landing_canvas" />
 
-                
-                {/* <Button
-                    size={5}
-                    textColor="var(--white_-1)"
-                    bgColor="var(--red_hero_btn_gradient)"
-                    className="red_hero_btn "
-                    boxShadow="var(--red_hero_btn_shadow)"
-                >
-                    join LICP Airdrop
-                </Button>
+                    <div className="content">
+                        <h1 className="f-size-h1 f-weight-bl animate_UI">
+                            Bridge & Stake <br />
+                            your ICP coins
+                        </h1>
+                        <p className="f-size-p2 f-weight-l animate_UI">
+                            Liquid ICP is world's first s-Bridge
+                            where bridged and staked assets remain
+                            liquid. Fractional reserve is governed
+                            by Liquid ICP community and ensures
+                            immediate withdrawal of ICP coins at
+                            any given time.
+                        </p>
+                        <div className="button_group animate_UI">
+                            <Button
+                                size={2}
+                                className="red_hero_btn f-size-p3 btn btn_gradient">
+                                join LICP Airdrop
+                            </Button>
+                            <Button
+                                size={2}
+                                className="red_hero_btn f-size-p3 btn btn_black">
+                                s-Bridge Now
+                            </Button>
+                        </div>
+                    </div>
 
-                <Button
-                    size={5}
-                    textColor="var(--white_-1)"
-                    bgColor="#0A0A0C"
-                    className="red_hero_btn "
-                    boxShadow="var(--black_hero_btn_shadow)"
-                    border="0.5px solid rgba(255, 255, 255, 0.12)"
-                >
-                    s-Bridge Now
-                </Button> */}
+                </div>
             </div>
         </>
     )
