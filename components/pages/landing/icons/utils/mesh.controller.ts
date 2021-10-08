@@ -34,8 +34,8 @@ export const addGLFModel = (
         // scene.background = hdrmap;
         // scene.environment = hdrmap;
 
-        const roughnessMapTexture = new THREE.TextureLoader().load('/textures/Plane_roughness.png')
-        const normalMapTexture = new THREE.TextureLoader().load('/textures/Plane_normal.png')
+        // const roughnessMapTexture = new THREE.TextureLoader().load('/textures/Plane_roughness.png')
+        const normalMapTexture = new THREE.TextureLoader().load('/textures/normals.jpg')
         const logoMaterial = new THREE.MeshStandardMaterial({
             color: 0x000000,
             roughness: 0.21,

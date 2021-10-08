@@ -14,16 +14,15 @@
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-html-parser": "^2.0.2",
     "sass": "^1.42.1",
-    "three": "^0.133.0",
+    "three": "^0.133.1",
     "tweakpane": "^3.0.5"
   },
   "devDependencies": {
     "@types/gsap": "^3.0.0",
-    "@types/node": "^16.10.2",
-    "@types/react": "^17.0.26",
-    "@types/three": "^0.132.2",
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.27",
+    "@types/three": "^0.133.0",
     "typescript": "^4.4.3"
   }
 }

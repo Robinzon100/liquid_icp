@@ -82,7 +82,6 @@ export const createScene = (scale: number, elementQueryString: string) => {
         // if (window.innerWidth > 400) {
         //     sizes.width = window.innerWidth * scale;
         //     sizes.height = window.innerWidth * scale;
-
         // }
 
         // sizes.width = sizes.width;
@@ -103,8 +102,8 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
      //  MOUSEMOVE EVENT
      window.addEventListener("mousemove", (e) => {
-        mouse.x = (e.clientX / sizes.width) * 1.2 - 1;
-        mouse.y = - (e.clientY / sizes.height) * 1.2 + 1;
+        mouse.x = (e.clientX / sizes.width) * .8  - 1;
+        mouse.y = - (e.clientY / sizes.height) * 1.5  + 1;
     })
 
 
