@@ -39,9 +39,9 @@ const imagesArray = [
 const index = () => {
     return (
         <>
-            <Hero />
+            {/* <Hero /> */}
             <ThreeDIcon />
-            <ColorDisplacement imagesArray={imagesArray} />
+            {/* <ColorDisplacement imagesArray={imagesArray} /> */}
         </>
     );
 };

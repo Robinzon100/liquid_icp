@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }:AppProps) {
         ogDescription="cutting edge technology to create true technical beauty of the future"
         ogImagePath="/meta_images/og_image.png"
       /> */}
-      <Navigation/>
+      {/* <Navigation/> */}
       <Component {...pageProps} />
     </>
   );
