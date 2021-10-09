@@ -7,7 +7,28 @@ import { createScene } from './utils/scene.contoller';
 const ThreeDIcon: FC = () => {
     const IconData = [
         {
-            placeholder: "/images/circle_big.png", path: '/3d_models/circle_with_orbit.glb',
+            placeholder: "/images/circle_big.png",
+            path: '/3d_models/circle_with_orbit.glb',
+            heading: "ICP-20",
+            paragraph:
+                `1:1 bridged ICP token on erc-20 standard which can be traded or 
+                used in various defi projects as collateral, staked to earn LP 
+                rewards or staked for st-ICP (Liquid version of icp-20) which 
+                enables user to earn Neuron staking rewards.`
+        },
+        {
+            placeholder: "/images/circle_big.png",
+            path: '/3d_models/2x.glb',
+            heading: "ICP-20",
+            paragraph:
+                `1:1 bridged ICP token on erc-20 standard which can be traded or 
+                used in various defi projects as collateral, staked to earn LP 
+                rewards or staked for st-ICP (Liquid version of icp-20) which 
+                enables user to earn Neuron staking rewards.`
+        },
+        {
+            placeholder: "/images/circle_big.png",
+            path: '/3d_models/cube.glb',
             heading: "ICP-20",
             paragraph:
                 `1:1 bridged ICP token on erc-20 standard which can be traded or 
@@ -37,17 +58,17 @@ const ThreeDIcon: FC = () => {
 
     return (
         <>
-            <div className="icons_container">
-                <div className="dark-container">
+            <div className="icons_main">
+                <div className="icons-container">
                     {IconData.map((icon, i) => (
-                        <div className="icon_container" key={i}>
+                        <div className={`icon_container`} key={i}>
 
-                            <div className="main_heading">
+                            <div className="content">
                                 <h1>{icon.heading}</h1>
                                 <p>{icon.paragraph}</p>
                             </div>
 
-                            <canvas className={`three_d_icon_${i} icon`}/>
+                            <canvas className={`three_d_icon_${i} icon`} />
                         </div>
                     ))}
                 </div>

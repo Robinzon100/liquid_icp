@@ -115,6 +115,8 @@ export const createScene = (scale: number, elementQueryString: string) => {
             if (el) {
                 if(window.innerWidth < 550) {
                     el!.rotation.y += 0.01
+                    el!.rotation.x += 0.01
+                    el!.rotation.z += 0.01
                 }else {
                     gsap.to(el!.rotation, { y: mouse.x });
                     gsap.to(el!.rotation, { x: mouse.y });

@@ -13,7 +13,7 @@ export const addGLFModel = (
     scene: THREE.Scene,
     renderer: THREE.WebGLRenderer,
     gltfModelPath: string,
-    canvasQuerySelector?:string) => {
+    canvasQuerySelector?: string) => {
 
 
     //============================ ENV
@@ -31,14 +31,11 @@ export const addGLFModel = (
 
     new RGBELoader().setPath("/hdr_textures/").load("HDRI.hdr", (hdrmap: any) => {
         let envmap = envmapLoader.fromCubemap(hdrmap)
-        // scene.background = hdrmap;
-        // scene.environment = hdrmap;
 
-        // const roughnessMapTexture = new THREE.TextureLoader().load('/textures/Plane_roughness.png')
         const normalMapTexture = new THREE.TextureLoader().load('/textures/normals.jpg')
         const logoMaterial = new THREE.MeshStandardMaterial({
             color: 0x000000,
-            roughness: 0.21,
+            roughness: 0.15,
             normalMap: normalMapTexture,
             normalScale: new THREE.Vector2(0.2, 0.2),
             emissive: 0x3357FA,
@@ -52,7 +49,6 @@ export const addGLFModel = (
             gltfModelPath,
             (gltf) => {
                 scene.add(gltf.scene);
-
                 gltf.scene.traverse((child: THREE.Object3D) => {
                     if ((child as THREE.Mesh).isMesh) {
                         (child as THREE.Mesh).material = logoMaterial;
@@ -67,8 +63,8 @@ export const addGLFModel = (
             },
             (xhr) => {
                 // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                if(xhr.loaded > 9000 && canvasQuerySelector) {
-                    (document.querySelector(canvasQuerySelector) as HTMLElement).style.backgroundImage = "none"; 
+                if (xhr.loaded > 9000 && canvasQuerySelector) {
+                    (document.querySelector(canvasQuerySelector) as HTMLElement).style.backgroundImage = "none";
                 }
                 console.log(xhr.loaded);
             },

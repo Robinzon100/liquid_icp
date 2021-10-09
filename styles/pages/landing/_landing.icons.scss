@@ -1,22 +1,15 @@
+.icons_main {
 
-
-.icons_container {
-  height: 100%;
-
-  .dark-container {
-    @include flex(space-around, center, row);
-    background: #0a0a0c;
-    width: 100%;
-    height: 100vh;
+  .icons-container {
+    background: var(--black_-1);
     position: relative;
 
 
     @media only screen and (max-width: 960px) {
-        height: initial !important;
+      height: initial !important;
     }
 
-
-
+    
     .icon_container {
       position: relative;
       display: grid;
@@ -24,21 +17,38 @@
       justify-content: center;
       align-items: center;
 
-      @media only screen and (max-width: 960px) {
-        grid-template-columns: initial !important;
-        grid-template-rows: auto 1fr;
+      &:nth-child(2) {
+        .content {
+          grid-column: 2/3;
+          grid-row: 1/2;
+        }
+
+        .icon {
+          grid-column: 1/2;
+          grid-row: 1/2;
+        }
       }
 
 
-      @media only screen and (max-width: 550px) {
-        grid-template-rows: 1fr 1fr;
+      @media only screen and (max-width: 960px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto !important;
+
+        .content {
+          grid-column: 1/2 !important;
+          grid-row: 1/2 !important;
+        }
+
+        .icon {
+          grid-column: 1/2 !important;
+          grid-row: 2/3 !important;
+        }
+      }
     }
 
-    }
 
 
-
-    .main_heading {
+    .content {
       padding: 0 10vw;
 
       h1 {
@@ -54,18 +64,17 @@
         font-weight: $f-weight-regular;
       }
     }
-
   }
 
 
 
   canvas {
-    width:100% !important;
+    width: 100% !important;
     height: 100% !important;
 
 
-    @media only screen and (max-width: 550px) {
-        height: 50vh !important;
-    }
+    // @media only screen and (max-width: 550px) {
+    //   height: 50vh !important;
+    // }
   }
 }
