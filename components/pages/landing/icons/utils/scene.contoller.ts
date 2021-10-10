@@ -1,12 +1,28 @@
 import * as THREE from 'three';
-import {gsap} from "gsap"
+import { gsap } from "gsap"
+
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+// import { UnrealBloomPass } from '3d_party/ TransparentBackgroundFixedUnrealBloomPass';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 
 
 
 export const createScene = (scale: number, elementQueryString: string) => {
-    let mouse = {x:0,y:0}
+    let mouse = { x: 0, y: 0 }
+    const postProcessingParams = {
+        exposure: 5,
+        bloomStrength: 0.5,
+        bloomThreshold: 0,
+        bloomRadius: 1.2
+    };
+
+
+
     const canvas = document.querySelector(elementQueryString) as HTMLElement;
-    // const clock = new THREE.Clock();
+
 
 
     const sizes = {
@@ -17,7 +33,7 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
     //============================ SCENE
     const scene = new THREE.Scene();
-    // scene.background = new THREE.Color('#020305');
+    scene.background = new THREE.Color('#020202');
 
     scene.fog = new THREE.Fog(0x000000, 10, 20);
 
@@ -75,6 +91,34 @@ export const createScene = (scale: number, elementQueryString: string) => {
     renderer.setSize(sizes.width, sizes.height);
 
 
+    let parameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, stencilBuffer: false };
+    let renderTarget = new THREE.WebGLRenderTarget(sizes.width, sizes.height, parameters);
+
+
+
+
+    //============================ POSTPROCESSING 
+    let composer = new EffectComposer(renderer, renderTarget);
+    const renderPass = new RenderPass(scene, camera);
+    renderPass.clear = false
+    renderPass.clearAlpha = 0
+    renderPass.renderToScreen = false
+
+    const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
+    const renderScene = new RenderPass(scene, camera);
+    const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 4, 1, 0.1);
+    bloomPass.threshold = postProcessingParams.bloomThreshold;
+    bloomPass.strength = postProcessingParams.bloomStrength;
+    bloomPass.radius = postProcessingParams.bloomRadius;
+
+    composer.addPass(gammaCorrectionPass);
+    composer.addPass(renderPass);
+    composer.addPass(renderScene);
+    composer.addPass(bloomPass);
+
+
+
+
 
 
     //============================ RESIZE
@@ -91,6 +135,8 @@ export const createScene = (scale: number, elementQueryString: string) => {
         camera.updateProjectionMatrix();
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        composer.setSize(sizes.width, sizes.height);
+        composer.setSize(window.innerWidth, window.innerHeight);
     })
 
 
@@ -100,37 +146,38 @@ export const createScene = (scale: number, elementQueryString: string) => {
     // controls.enableDamping = true
 
 
-     //  MOUSEMOVE EVENT
-     window.addEventListener("mousemove", (e) => {
-        mouse.x = (e.clientX / sizes.width) * .8  - 1;
-        mouse.y = - (e.clientY / sizes.height) * 1.5  + 1;
+    //  MOUSEMOVE EVENT
+    window.addEventListener("mousemove", (e) => {
+        mouse.x = (e.clientX / sizes.width) * .8 - 1;
+        mouse.y = - (e.clientY / sizes.height) * 1.5 + 1;
     })
 
 
     const animate = () => {
         // controls.update();
 
-        if(scene.children) {
-        const el = scene.children.find(el => el.type == "Group" );
+        if (scene.children) {
+            const el = scene.children.find(el => el.type == "Group");
             if (el) {
-                if(window.innerWidth < 550) {
+                if (window.innerWidth < 550) {
                     el!.rotation.y += 0.01
                     el!.rotation.x += 0.01
                     el!.rotation.z += 0.01
-                }else {
+                } else {
                     gsap.to(el!.rotation, { y: mouse.x });
                     gsap.to(el!.rotation, { x: mouse.y });
                 }
             }
 
-            
+
         }
 
-        
-        
-        
+
+
+
         renderer.clear();
-        renderer.render(scene, camera);
+        // renderer.render(scene, camera);
+        composer.render();
         requestAnimationFrame(animate);
     }
     animate()

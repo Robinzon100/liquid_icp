@@ -390,48 +390,6 @@ const Hero = () => {
                 ease: 'none',
             })
 
-
-
-
-
-            // tl.add('start')
-            // tl.to(camera.position, {
-            //     x: 4.6,
-            //     y: 2.0,
-            //     z: 15.7,
-            //     duration: 3,
-            //     ease: 'power1.out'
-            // }, 'start')
-            //     // .to(camera, {
-            //     //     setFocalLength: 74,
-            //     //     duration: 3,
-            //     //     ease: 'power1.out'
-            //     // }, 'start')
-            //     .to(camera.rotation, {
-            //         x: 0,
-            //         y: 6.4,
-            //         z: 0,
-            //         duration: 4,
-            //         ease: 'power1.out'
-            //     }, 'start')
-
-            // // tl
-            // tl.to(_town.position, {
-            //     y: 0,
-            //     duration: 2,
-            //     ease: 'power4.out'
-            // })
-            // .to(camera.rotation, {
-            //     x: 0,
-            //     y: 6.3,
-            //     z: 0,
-            //     delay: .5,
-            //     duration: 3,
-            //     ease: 'power1.out'
-            // }, 'start')
-
-
-
         }
 
 
