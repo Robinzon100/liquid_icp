@@ -66,9 +66,6 @@ const ColorDisplacement = ({ imagesArray }) => {
 
             (plane as Plane)._setDocumentSizes();
             (plane as Plane)._applyWorldPositions();
-
-
-
             plane.setRenderTarget(rgbTarget);
         }
 
