@@ -1,8 +1,8 @@
 //@ts-ignore
-import { Curtains, Plane, RenderTarget,ShaderPass } from 'curtainsjs';
+import { Curtains, Plane, RenderTarget, ShaderPass } from 'curtainsjs';
 import { useEffect } from 'react';
 import { vertex } from "./shaders/vertex";
-import { fragment,rgbFs,blurFs } from "./shaders/fragment";
+import { fragment, rgbFs, blurFs } from "./shaders/fragment";
 
 
 
@@ -27,9 +27,9 @@ const ColorDisplacement = ({ imagesArray }) => {
             scrollEffect = curtains.lerp(scrollEffect, 0, 0.08);
         }).onScroll(() => {
             const delta = curtains.getScrollDeltas();
-    
+
             delta.y = -delta.y;
-    
+
             // threshold
             if (delta.y > 40) {
                 delta.y = 40;
@@ -37,25 +37,25 @@ const ColorDisplacement = ({ imagesArray }) => {
             else if (delta.y < -40) {
                 delta.y = -40;
             }
-    
+
             if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
                 scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.8);
             }
-    
+
         }).onError(() => {
             document.body.classList.add("no-curtains");
         }).onContextLost(() => {
             curtains.restoreContext();
         });
-    
-    
+
+
         const planeElements = document.getElementsByClassName("plane");
         const rgbTarget = new RenderTarget(curtains);
 
 
 
 
-        for(let i = 0; i < planeElements.length; i++) {
+        for (let i = 0; i < planeElements.length; i++) {
             const plane = new Plane(curtains, planeElements[i], {
                 vertexShader: vertex(),
                 fragmentShader: fragment(),
@@ -63,12 +63,14 @@ const ColorDisplacement = ({ imagesArray }) => {
                     minFilter: curtains.gl.LINEAR_MIPMAP_NEAREST
                 }
             });
-    
+
+            (plane as Plane)._setDocumentSizes();
+            (plane as Plane)._applyWorldPositions();
             plane.setRenderTarget(rgbTarget);
         }
 
 
-        
+
         const rgbPass = new ShaderPass(curtains, {
             fragmentShader: rgbFs(),
             renderTarget: rgbTarget,
@@ -106,7 +108,7 @@ const ColorDisplacement = ({ imagesArray }) => {
                 },
             },
         });
-    
+
         blurPass.onRender(() => {
             // update the uniform
             blurPass.uniforms.scrollEffect.value = scrollEffect;
@@ -116,7 +118,7 @@ const ColorDisplacement = ({ imagesArray }) => {
         });
     }
 
-    
+
 
 
 

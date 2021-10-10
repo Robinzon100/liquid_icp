@@ -40,7 +40,7 @@ const imagesArray = [
 const index = () => {
     return (
         <>
-            {/* <Hero /> */}
+            <Hero />
             <TwoDIcons/>
             <ThreeDIcon />
             <ColorDisplacement imagesArray={imagesArray} />
