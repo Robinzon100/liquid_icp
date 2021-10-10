@@ -1,45 +1,15 @@
 import { FC, useEffect, useState } from 'react';
 import { addGLFModel } from './utils/mesh.controller';
 import { createScene } from './utils/scene.contoller';
-import { Pane } from 'tweakpane';
+
+
+
+import ThreeDIconData from "components/pages/landing/icons/ThreeDIconData.json"
 
 
 
 const ThreeDIcon: FC = () => {
-    const IconData = [
-        {
-            placeholder: "/images/circle_big.png",
-            path: '/3d_models/circle_with_orbit.glb',
-            heading: "ICP-20",
-            paragraph:
-                `1:1 bridged ICP token on erc-20 standard which can be traded or 
-                used in various defi projects as collateral, staked to earn LP 
-                rewards or staked for st-ICP (Liquid version of icp-20) which 
-                enables user to earn Neuron staking rewards.`
-        },
-        {
-            placeholder: "/images/circle_big.png",
-            path: '/3d_models/2x.glb',
-            heading: "ICP-20",
-            paragraph:
-                `1:1 bridged ICP token on erc-20 standard which can be traded or 
-                used in various defi projects as collateral, staked to earn LP 
-                rewards or staked for st-ICP (Liquid version of icp-20) which 
-                enables user to earn Neuron staking rewards.`
-        },
-        {
-            placeholder: "/images/circle_big.png",
-            path: '/3d_models/cube.glb',
-            heading: "ICP-20",
-            paragraph:
-                `1:1 bridged ICP token on erc-20 standard which can be traded or 
-                used in various defi projects as collateral, staked to earn LP 
-                rewards or staked for st-ICP (Liquid version of icp-20) which 
-                enables user to earn Neuron staking rewards.`
-        },
-    ]
-
-
+   
     useEffect(() => {
         init()
     }, [])
@@ -47,9 +17,9 @@ const ThreeDIcon: FC = () => {
 
 
     const init = () => {
-        for (let i = 0; i < IconData.length; i++) {
+        for (let i = 0; i < ThreeDIconData.length; i++) {
             const { scene, renderer } = createScene(.5, `.three_d_icon_${i}`)
-            addGLFModel(scene, renderer, IconData[i].path, `.three_d_icon_${i}`)
+            addGLFModel(scene, renderer, ThreeDIconData[i].path, `.three_d_icon_${i}`)
         }
     }
 
@@ -57,7 +27,9 @@ const ThreeDIcon: FC = () => {
         <>
             <div className="icons_main">
                 <div className="icons-container">
-                    {IconData.map((icon, i) => (
+
+
+                    {ThreeDIconData.map((icon, i) => (
                         <div className={`icon_container`} key={i}>
 
                             <div className="content">
