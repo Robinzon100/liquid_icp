@@ -5,28 +5,30 @@ import { useEffect } from "react";
 
 
 const Navigation = () => {
-    const tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline();
 
     
     useEffect(() => {
 
+        //HAMBURGER ANIMATION
         tl.to(".hamburger .inner:nth-child(2)",{
-            right:-50,
+            right:-70,
             duration:.3,
         }).to(".hamburger .inner:nth-child(1)",{
-            rotateZ:45,
+            rotate:45,
             top:10,
             duration:.8,
             ease:"sine.in"
         },"-=1").to(".hamburger .inner:nth-child(3)",{
-            rotateZ:-45,
+            rotate:-45,
             top:-10,
             duration:.8,
             ease:"sine.in"
         },"-=1")
         
-
-        .to(".item", {
+        
+       // NAVIGATION ANIMATION 
+        tl.to(".item", {
             duration: .2,
             // ease: "power2.out",
             y: "285px",

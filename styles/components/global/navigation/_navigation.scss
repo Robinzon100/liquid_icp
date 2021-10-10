@@ -6,13 +6,14 @@
 
 
 
+
+  
   .navigation_container {
     padding: 2rem 10vw;
 
     @media only screen and (max-width: 960px) {
       padding: 1rem 3vw;
     }
-    
 
     .logo {
       cursor: pointer;
@@ -32,13 +33,15 @@
         filter: blur(25px);
       }
 
-
       @media only screen and (max-width: 500px) {
-            width: 3rem;
-            height: 3rem;
-        }
-
+        width: 3rem;
+        height: 3rem;
+      }
     }
+
+
+
+
 
     .navigation_items {
       position: relative;
@@ -56,7 +59,7 @@
           flex-direction: column;
           width: 100%;
           background-color: var(--black_-1);
-          opacity: 0 ; 
+          opacity: 0;
         }
 
         :not(:first-child) {
@@ -64,24 +67,18 @@
 
           @media only screen and (max-width: 700px) {
             margin-left: 0;
-            // margin-top: 2rem;
           }
         }
 
-
-
-
         .links {
           cursor: pointer;
-          
-        @media only screen and (max-width: 700px) {
+
+          @media only screen and (max-width: 700px) {
             margin-top: 2rem;
             padding: 1rem 0;
             opacity: 0;
-          transform: translateY(-10px);
-
-        }
-          
+            transform: translateY(-10px);
+          }
 
           h1 {
             font-family: "Heebo";
@@ -98,14 +95,15 @@
 
 
 
-
       .navigation_btn {
         h1 {
           color: var(--black_-1);
         }
-
-      
       }
+
+
+
+
 
 
 
@@ -118,14 +116,12 @@
           margin-top: 0.4rem;
         }
 
-
         div {
           background-color: var(--white_1);
           width: 35px;
           height: 4px;
           border-radius: 3px;
-          position: relative; 
-
+          position: relative;
         }
 
         @media only screen and (max-width: 700px) {
