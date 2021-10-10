@@ -20,7 +20,6 @@ const TwoDIcons = () => {
             twoDIcons: "/images/triangle.png",
             heading: "Lend, Borrow and earn 2x Rewards",
         }
-
     ]
 
 

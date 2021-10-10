@@ -503,7 +503,7 @@ const Hero = () => {
                     <canvas className="hero_landing_canvas" />
 
                     <div className="content">
-                        <h1 className="f-size-h1 f-weight-bl animate_UI">
+                        <h1 className="f-size-h2 f-weight-bl animate_UI">
                             Bridge & Stake <br />
                             your ICP coins
                         </h1>
