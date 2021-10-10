@@ -2,10 +2,12 @@
   position: fixed;
   width: 100%;
   z-index: 99;
-  background-color: var(--black_-1);
+  background: linear-gradient(180deg, #0A0A0D -13.29%, rgba(20, 21, 34, 0) 100%);
 
 
-
+    @media only screen and (max-width: 500px) {
+        background-color: var(--black_-1);
+    } 
 
   
   .navigation_container {
@@ -20,18 +22,10 @@
       position: relative;
       width: 4.5rem;
       height: 4.5rem;
-      @include background-image("/svg/logo.svg", contain);
+      @include background-image("/svg/logo.png", contain);
       z-index: 2;
-
-      &:after {
-        z-index: 1;
-        @include after;
-        @include background-image("/svg/logo.svg", contain);
-        width: 4.5rem;
-        height: 4.5rem;
-        top: 20%;
-        filter: blur(25px);
-      }
+      filter: drop-shadow(0 0 30px #ff7e7a57);  
+      
 
       @media only screen and (max-width: 500px) {
         width: 3rem;
@@ -50,7 +44,7 @@
 
       .item {
         @include flex(initial, center, row);
-        transform: translateX(5%);
+        transform: translateX(13%);
 
         @media only screen and (max-width: 700px) {
           position: absolute;
@@ -82,8 +76,10 @@
 
           h1 {
             font-family: "Heebo";
-            opacity: 90%;
-
+            opacity: 80%;
+            font-weight: $f-weight-light;
+            
+            
             &:hover {
               opacity: 100%;
             }

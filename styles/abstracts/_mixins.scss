@@ -27,3 +27,18 @@
     background-position: $background-position;
     background-repeat: no-repeat;
 }
+
+@mixin color-balls() {
+    width: $width;
+    height: $height;
+    background-color: $bg-color;
+    filter: blur(276px);
+    opacity: 0.5;
+}
+@mixin balls-position($top:0,$bottom:0,$left:0,$right:0) {
+    position: absolute;
+    top: $top;
+    bottom: $bottom;
+    left:$left;
+    right: $right;
+}

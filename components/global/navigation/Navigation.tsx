@@ -82,7 +82,7 @@ const Navigation = () => {
 
 
                         <Button
-                            size={2}
+                            size={1.5}
                             className="btn btn_white navigation_btn">
                             <h1 className="f-size-p3 f-weight-r">join LICP Airdrop</h1>
 
