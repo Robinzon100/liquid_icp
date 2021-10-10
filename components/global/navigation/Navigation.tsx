@@ -31,7 +31,7 @@ const Navigation = () => {
         tl.to(".item", {
             duration: .2,
             // ease: "power2.out",
-            y: "285px",
+            y: "280px",
             opacity: 1
         }).to(".links", {
             duration:.2,

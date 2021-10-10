@@ -11,11 +11,8 @@
 
   
   .navigation_container {
-    padding: 2rem 10vw;
 
-    @media only screen and (max-width: 960px) {
-      padding: 1rem 3vw;
-    }
+    
 
     .logo {
       cursor: pointer;
@@ -41,10 +38,16 @@
       position: relative;
       width: 100%;
       @include flex(space-between, center, row);
+      padding: 2rem 10vw;
+
+        @media only screen and (max-width: 960px) {
+            padding: 1rem 3vw;
+        }
 
       .item {
         @include flex(initial, center, row);
         transform: translateX(13%);
+        left: 0;
 
         @media only screen and (max-width: 700px) {
           position: absolute;
