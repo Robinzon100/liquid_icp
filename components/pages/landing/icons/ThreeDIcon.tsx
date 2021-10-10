@@ -36,10 +36,6 @@ const ThreeDIcon: FC = () => {
                 rewards or staked for st-ICP (Liquid version of icp-20) which 
                 enables user to earn Neuron staking rewards.`
         },
-
-        // { placeholder: "/images/circle_inside_ball.png", path: '/3d_models/circle_with_orbit.glb', text: "Participate in rich DeFi ecosystems" },
-        // { placeholder: "/images/cube.png", path: '/3d_models/cube.glb', text: "Get insurance on your ICP holdings" },
-        // { placeholder: "/images/triangle.png", path: '/3d_models/2x.glb', text: "Lend, Borrow and earn 2x Rewards" }
     ]
 
 

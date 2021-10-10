@@ -1,10 +1,11 @@
-// import Hero from "components/pages/landing/hero/Hero.landin";
-// import Hero from "components/pages/landing/hero/Hero.landin";
-// import ThreeDIcon from "components/pages/landing/icons/ThreeDIcon";
+import Hero from "components/pages/landing/hero/Hero.landin"
+
 import dynamic from "next/dynamic";
 const ThreeDIcon = dynamic(() => import('../components/pages/landing/icons/ThreeDIcon'), { ssr: false });
-import Hero from "components/pages/landing/hero/Hero.landin"
 const ColorDisplacement = dynamic(() => import("components/pages/ColorDisplacement/ColorDisplacement"), { ssr: false });
+import TwoDIcons from "components/pages/landing/2dIcons/TwoDIcons";
+
+
 
 
 const imagesArray = [
@@ -40,6 +41,7 @@ const index = () => {
     return (
         <>
             {/* <Hero /> */}
+            <TwoDIcons/>
             <ThreeDIcon />
             {/* <ColorDisplacement imagesArray={imagesArray} /> */}
         </>

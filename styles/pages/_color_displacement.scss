@@ -6,7 +6,8 @@
 #page-wrap {
   position: relative;
   padding: 2rem 10vw;
-  margin-top: 25rem;
+//   margin-top: 25rem;
+//   height: 100vh;
 }
 
 /*** canvas ***/
@@ -70,21 +71,3 @@
   display: none;
 }
 
-/*** handling errors ***/
-
-.no-curtains .plane-title {
-  z-index: 1;
-}
-
-.no-curtains .plane {
-  display: flex;
-  overflow: hidden;
-}
-
-.no-curtains .plane img,
-img {
-  display: block;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-}
