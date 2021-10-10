@@ -26,7 +26,7 @@ import { Pane } from "tweakpane"
 // COMPONENETS
 import Button from "components/lib/button/Button"
 import Loading from '../../../global/Loading/Loading';
-
+import ColorBalls from "components/lib/ColorBalls/ColorBalls";
 
 
 
@@ -456,7 +456,18 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
-                <Loading />
+               
+                 <ColorBalls
+                   bgColor="var(--red)" 
+                   className="main_ball"                 
+                   left="98%"
+                   top="-7%"
+                   width="12rem"
+                   height="12rem"
+                />
+                
+                
+                {/* <Loading /> */}
                 <div className="hero_landing_container">
                     <canvas className="hero_landing_canvas" />
 

@@ -1,33 +1,24 @@
-
-
+import TwoDIconsJson from "components/pages/landing/2dIcons/TwoDIcons.json";
+import ColorBalls from "components/lib/ColorBalls/ColorBalls";
 
 
 const TwoDIcons = () => {
-    const TwoDIconData = [
-        {
-            twoDIcons: "/images/full_circle.png",
-            heading: "Bridge from Dfinity to EVM compatible blockchains",
-        },
-        {
-            twoDIcons: "/images/inner_empty_circle.png",
-            heading: "Participate in rich DeFi ecosystems",
-        },
-        {
-            twoDIcons: "/images/cube.png",
-            heading: "Get insurance on your ICP holdings",
-        },
-        {
-            twoDIcons: "/images/triangle.png",
-            heading: "Lend, Borrow and earn 2x Rewards",
-        }
-    ]
+
 
 
     return (
         <>
             <div className="twoDIcons-container">
+                <ColorBalls
+                    bgColor="var(--blue)"
+                    className="main_ball"
+                    left="-5%"
+                    top="-17%"
+                    width="18rem"
+                    height="18rem"
+                />
                 <div className="twoDIcons-dark_container">
-                    {TwoDIconData.map((icon, i) => (
+                    {TwoDIconsJson.map((icon, i) => (
                         <div className={`twoDIcon_container`} key={i}>
 
                             <div className="icon"

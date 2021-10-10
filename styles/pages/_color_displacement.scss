@@ -6,15 +6,13 @@
 #page-wrap {
   position: relative;
   padding: 2rem 10vw;
-//   margin-top: 25rem;
-//   height: 100vh;
 }
 
 /*** canvas ***/
 
 /* our canvas will be a bit taller than our window to avoid "glitched" top and bottom edges */
 #canvas {
-  position: fixed;
+  position:fixed;
   top: -10vh;
   right: 0;
   left: 0;
