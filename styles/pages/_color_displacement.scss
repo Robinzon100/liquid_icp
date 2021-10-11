@@ -6,6 +6,7 @@
 #page-wrap {
   position: relative;
   padding: 2rem 10vw;
+  margin-top: 10rem;
 }
 
 /*** canvas ***/
@@ -39,7 +40,7 @@
 
   @media screen and (max-width: 968px) {
     grid-template-columns: initial !important;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
   }
 }
 

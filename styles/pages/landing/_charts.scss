@@ -1,5 +1,5 @@
 .chart {
-  margin-top: 15rem;
+  margin-top: 10rem;
   padding: 0 7vw;
 
   .chart_container {
@@ -37,9 +37,10 @@
 
         @media only screen and (max-width: 750px) {
             justify-content: initial;
+            max-width: initial !important;
 
-            :not(:first-child) {
-                margin-right: 0;
+            &:not(:first-child) {
+                margin-right: initial !important;
                 margin-top: 2rem;
             }
         }
@@ -71,6 +72,11 @@
           height: 1.5rem;
           margin-right: 0.5rem;
           transform: translateY(5px);
+
+          @media only screen and (max-width: 750px) {
+            transform: translateY(0px);
+            margin-right: 1rem;
+          }
         }
       }
     }
@@ -84,11 +90,14 @@
       height: 100%;
       max-width: 50rem;
       margin: 0 auto;
-      margin-top: 5rem;
+      margin-top: 5vw;
+
+      
 
       video {
         width: 100%;
         height: 100%;
+        filter: contrast(1.01);
       }
     }
   }

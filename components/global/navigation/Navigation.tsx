@@ -50,12 +50,12 @@ const Navigation = () => {
 
 
         // NAVIGATION ANIMATION 
-        tl.to(".item", {
+        tl.to(".navigation_items .item", {
             duration: .1,
             // ease: "power2.out",
             y: "280px",
             opacity: 1,
-            // display:"flex"
+            display:"flex"
         }).to(".links", {
             duration: .3,
             y: 0,
