@@ -5,51 +5,71 @@ import { useEffect } from "react";
 
 
 const Navigation = () => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({paused:true,reversed:true});
 
-    
+
     useEffect(() => {
 
         //HAMBURGER ANIMATION
-        // tl.to(".hamburger .inner:nth-child(1)",{
-        //     rotate:"45deg",
-        //     top:10,
-        //     scale:0.1,
-        //     transformOrigin:"50% 50%",
-        //     duration:.2,
-        //     ease:"sine.in"
-        // },"-=1").to(".hamburger .inner:nth-child(2)",{
-        //     right:-70,
-        //     duration:.7,
-        // }).to(".hamburger .inner:nth-child(3)",{
-        //     rotate:"-45deg",
-        //     top:-10,
-        //     duration:.7,
-        //     ease:"sine.in"
-        // },"-=1")
-        
-        
-       // NAVIGATION ANIMATION 
+        tl.to(".hamburger .inner:nth-child(1)", {
+            y: "-9px",
+            transformOrigin: "50% 50%",
+            duration: .2,
+        }, 'burg').to(".hamburger .inner:nth-child(2)", {
+            scale: 0.1,
+            transformOrigin: "50% 50%",
+            duration: .2,
+        }, 'burg').to(".hamburger .inner:nth-child(3)", {
+            y: "9px",
+            transformOrigin: "50% 50%",
+            duration: .2,
+        }, 'burg')
+            .add('rotate')
+            .to(".hamburger .inner:nth-child(1)", {
+                y: "5",
+                duration: .2
+            }, 'rotate')
+            .to(".hamburger .inner:nth-child(3)", {
+                y: "-10",
+                duration: .2
+            }, 'rotate')
+            .to(".hamburger .inner:nth-child(1)", {
+                rotationZ: 45,
+                transformOrigin: "50% 50%",
+                duration:.2
+            }, 'rotate')
+            .to(".hamburger .inner:nth-child(3)", {
+                rotationZ: -45,
+                transformOrigin: "50% 50%",
+                duration:.2
+            }, 'rotate')
+
+
+
+
+
+
+        // NAVIGATION ANIMATION 
         tl.to(".item", {
-            duration: .3,
+            duration: .1,
             // ease: "power2.out",
             y: "280px",
             opacity: 1
         }).to(".links", {
-            duration:.3,
-            y:0,
-            opacity:1,
+            duration: .3,
+            y: 0,
+            opacity: 1,
             stagger: {
-                each: 0.05,
+                each: 0.1,
             }
-        }).reverse()
+        })
 
     })
 
 
 
     const OnToggle = () => {
-        tl.reversed(!tl.reversed())
+        tl.reversed() ? tl.restart() : tl.reverse()
     }
 
     return (
@@ -83,7 +103,7 @@ const Navigation = () => {
 
 
                         <Button
-                         size={1.2}
+                            size={1.2}
                             className="btn btn_white navigation_btn">
                             <h4 className="f-size-p3 f-weight-r">
                                 Enter App
