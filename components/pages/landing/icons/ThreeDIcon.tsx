@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { addGLFModel } from './utils/mesh.controller';
 import { createScene } from './utils/scene.contoller';
 
