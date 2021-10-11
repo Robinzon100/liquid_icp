@@ -9,7 +9,7 @@ const Charts = () => {
             <div className="chart">
                 <div className="chart_container">
                     <div className="heading">
-                        <h1 className="f-size-h1">
+                        <h1 className="f-size-h1 f-weight-bo">
                             Use of Funds from IDO
                         </h1>
                     </div>
@@ -51,9 +51,14 @@ const Charts = () => {
 
 
 
+
+
+
+
+
                 <div className="chart_container">
                     <div className="heading">
-                        <h1 className="f-size-h1">
+                        <h1 className="f-size-h1 f-weight-bo">
                             Token Distribution
                         </h1>
                     </div>

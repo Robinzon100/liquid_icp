@@ -6,7 +6,7 @@
 #page-wrap {
   position: relative;
   padding: 2rem 10vw;
-  margin-top: 10rem;
+  margin-top: 25vw;
 }
 
 /*** canvas ***/
@@ -38,7 +38,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 70px;
 
-  @media screen and (max-width: 968px) {
+  @media screen and (max-width: 960px) {
     grid-template-columns: initial !important;
     grid-template-rows: repeat(auto, 1fr);
   }

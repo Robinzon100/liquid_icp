@@ -8,6 +8,10 @@ const ThreeDIcon = dynamic(() => import('../components/pages/landing/icons/Three
 const ColorDisplacement = dynamic(() => import("components/pages/ColorDisplacement/ColorDisplacement"), { ssr: false });
 import TwoDIcons from "components/pages/landing/2dIcons/TwoDIcons";
 import ChartFunds from "components/pages/landing/Charts/Charts"
+import RoadMap from "components/pages/landing/RoadMap/RoadMap";
+import Partners from "components/pages/landing/Partners/Partners";
+
+
 
 // OTHER IMPORTS
 import ImagesArray from "components/pages/ColorDisplacement/json/ImagesArray.json"
@@ -41,6 +45,8 @@ const index = () => {
             <ThreeDIcon />
             
             <ChartFunds />
+            <RoadMap/>
+            <Partners/>
             <ColorDisplacement imagesArray={ImagesArray} />
         </>
     );

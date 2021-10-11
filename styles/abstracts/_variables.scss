@@ -65,7 +65,12 @@
   --satoshi: "Satoshi";
 
   //*=== SIZES
-  --main_max_width: 120rem;
+  --main_max_width: 95rem;
 
 
 }
+
+
+
+$medium_screen_query:750px;
+$small_screen_query:500px;

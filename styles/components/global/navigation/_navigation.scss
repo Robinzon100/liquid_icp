@@ -5,13 +5,13 @@
   background: linear-gradient(180deg, #0A0A0D -13.29%, rgba(20, 21, 34, 0) 100%);
 
 
-    @media only screen and (max-width: 750px) {
+    @media only screen and (max-width: $medium_screen_query) {
         background-color: var(--black_-1);
     } 
 
   
   .navigation_container {
-
+    @include flex();
     
 
     .logo {
@@ -24,7 +24,7 @@
       filter: drop-shadow(0 0 30px #ff7e7a57);  
       
 
-      @media only screen and (max-width: 750px) {
+      @media only screen and (max-width: $medium_screen_query) {
         width: 2rem;
         height: 2rem;
       }
@@ -38,10 +38,11 @@
       position: relative;
       width: 100%;
       @include flex(space-between, center, row);
+    //   max-width: 95rem;
       padding: 2rem 10vw;
 
         @media only screen and (max-width: 960px) {
-            padding: 1rem 7vw;
+            padding: 1rem 3vw;
         }
 
       .item {
@@ -50,7 +51,7 @@
         left: 0;
         display: flex;
 
-        @media only screen and (max-width: 750px) {
+        @media only screen and (max-width: $medium_screen_query) {
           position: absolute;
           bottom: 0%;
           transform: translateY(100%);
@@ -64,7 +65,7 @@
         :not(:first-child) {
           margin-left: 2rem;
 
-          @media only screen and (max-width: 750px) {
+          @media only screen and (max-width: $medium_screen_query) {
             margin-left: 0;
           }
         }
@@ -72,7 +73,7 @@
         .links {
           cursor: pointer;
 
-          @media only screen and (max-width: 750px) {
+          @media only screen and (max-width: $medium_screen_query) {
             margin-top: 2rem;
             padding: 1rem 0;
             opacity: 0;
@@ -108,7 +109,7 @@
         box-shadow: 0px 16px 11px -8px rgba(0, 0, 0, 0.71);
         text-align: center;
 
-        @media only screen and (max-width: 750px) {
+        @media only screen and (max-width: $medium_screen_query) {
             margin-left: 0;
           }
        
@@ -153,7 +154,7 @@
           position: relative;
         }
 
-        @media only screen and (max-width: 750px) {
+        @media only screen and (max-width: $medium_screen_query) {
           display: block !important;
         }
       }
