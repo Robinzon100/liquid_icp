@@ -10,7 +10,7 @@ import TwoDIcons from "components/pages/landing/2dIcons/TwoDIcons";
 
 
 // OTHER IMPORTS
-import ImagesArray from "components/pages/ColorDisplacement/ImagesArray.json"
+import ImagesArray from "components/pages/ColorDisplacement/json/ImagesArray.json"
 
 
 

@@ -1,4 +1,4 @@
-import TwoDIconsJson from "components/pages/landing/2dIcons/TwoDIcons.json";
+import TwoDIconsJson from "components/pages/landing/2dIcons/json/TwoDIcons.json";
 import ColorBalls from "components/lib/ColorBalls/ColorBalls";
 
 
