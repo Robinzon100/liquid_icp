@@ -459,7 +459,6 @@ const Hero = () => {
                
                  <ColorBalls
                    bgColor="var(--red)" 
-                   className="main_ball"                 
                    left="98%"
                    top="-7%"
                    width="12rem"

@@ -19,14 +19,14 @@
       position: relative;
       width: 4.5rem;
       height: 4.5rem;
-      @include background-image("/svg/logo.png", contain);
+      @include background-image("/images/logo.png", contain);
       z-index: 2;
       filter: drop-shadow(0 0 30px #ff7e7a57);  
       
 
       @media only screen and (max-width: 500px) {
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
       }
     }
 
@@ -41,7 +41,7 @@
       padding: 2rem 10vw;
 
         @media only screen and (max-width: 960px) {
-            padding: 1rem 3vw;
+            padding: 1rem 7vw;
         }
 
       .item {
@@ -135,14 +135,15 @@
         display: none;
         cursor: pointer;
 
+        
         :not(:first-child) {
           margin-top: 0.4rem;
         }
 
         div {
           background-color: var(--white_1);
-          width: 35px;
-          height: 4px;
+          width: 30px;
+          height: 1px;
           border-radius: 3px;
           position: relative;
         }

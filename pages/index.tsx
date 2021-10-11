@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const ThreeDIcon = dynamic(() => import('../components/pages/landing/icons/ThreeDIcon'), { ssr: false });
 const ColorDisplacement = dynamic(() => import("components/pages/ColorDisplacement/ColorDisplacement"), { ssr: false });
 import TwoDIcons from "components/pages/landing/2dIcons/TwoDIcons";
-
+import ChartFunds from "components/pages/landing/Charts/Charts"
 
 // OTHER IMPORTS
 import ImagesArray from "components/pages/ColorDisplacement/json/ImagesArray.json"
@@ -33,11 +33,23 @@ const index = () => {
     })
 
 
+    // const IdoShares = {
+    //     [
+    //         para
+    //     ]
+    // }
+
+
     return (
         <>
             <Hero />
             <TwoDIcons />
             <ThreeDIcon />
+            
+            <ChartFunds 
+                heading="Use of Funds from IDO"
+                // shares={} 
+            />
             <ColorDisplacement imagesArray={ImagesArray} />
         </>
     );
