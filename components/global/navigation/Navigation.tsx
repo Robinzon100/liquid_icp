@@ -54,7 +54,8 @@ const Navigation = () => {
             duration: .1,
             // ease: "power2.out",
             y: "280px",
-            opacity: 1
+            opacity: 1,
+            // display:"flex"
         }).to(".links", {
             duration: .3,
             y: 0,

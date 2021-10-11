@@ -16,7 +16,6 @@ import ImagesArray from "components/pages/ColorDisplacement/json/ImagesArray.jso
 
 
 
-
 const index = () => {
 
 
@@ -33,11 +32,6 @@ const index = () => {
     })
 
 
-    // const IdoShares = {
-    //     [
-    //         para
-    //     ]
-    // }
 
 
     return (
@@ -46,10 +40,7 @@ const index = () => {
             <TwoDIcons />
             <ThreeDIcon />
             
-            <ChartFunds 
-                heading="Use of Funds from IDO"
-                // shares={} 
-            />
+            <ChartFunds />
             <ColorDisplacement imagesArray={ImagesArray} />
         </>
     );
