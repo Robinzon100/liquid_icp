@@ -11,7 +11,6 @@ const TwoDIcons = () => {
             <div className="twoDIcons-container">
                 <ColorBalls
                     bgColor="var(--blue)"
-                    className="main_ball"
                     left="-5%"
                     top="-17%"
                     width="18rem"

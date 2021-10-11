@@ -7,7 +7,6 @@ const IconGradients = () => {
         <>
             <ColorBalls
                 bgColor="var(--red)"
-                className="main_ball"
                 left="-7%"
                 top="15%"
                 width="20rem"
@@ -16,7 +15,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--blue)"
-                className="main_ball"
                 left="-5%"
                 top="5%"
                 width="15rem"
@@ -27,7 +25,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--white)"
-                className="main_ball"
                 left="95%"
                 top="15%"
                 width="15rem"
@@ -35,7 +32,6 @@ const IconGradients = () => {
             />
             <ColorBalls
                 bgColor="var(--red)"
-                className="main_ball"
                 left="95%"
                 top="5%"
                 width="20rem"
@@ -48,7 +44,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--white)"
-                className="main_ball"
                 left="-7%"
                 top="40%"
                 width="16rem"
@@ -57,7 +52,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--blue)"
-                className="main_ball"
                 left="-5%"
                 top="50%"
                 width="20rem"
@@ -69,7 +63,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--blue)"
-                className="main_ball"
                 left="95%"
                 top="40%"
                 width="15rem"
@@ -77,7 +70,6 @@ const IconGradients = () => {
             />
             <ColorBalls
                 bgColor="var(--red)"
-                className="main_ball"
                 left="95%"
                 top="55%"
                 width="16rem"
@@ -92,7 +84,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--red)"
-                className="main_ball"
                 left="-7%"
                 top="75%"
                 width="20rem"
@@ -101,7 +92,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--blue)"
-                className="main_ball"
                 left="-5%"
                 top="85%"
                 width="15rem"
@@ -112,7 +102,6 @@ const IconGradients = () => {
 
             <ColorBalls
                 bgColor="var(--blue)"
-                className="main_ball"
                 left="95%"
                 top="85%"
                 width="15rem"
@@ -120,7 +109,6 @@ const IconGradients = () => {
             />
             <ColorBalls
                 bgColor="var(--white)"
-                className="main_ball"
                 left="95%"
                 top="75%"
                 width="20rem"
