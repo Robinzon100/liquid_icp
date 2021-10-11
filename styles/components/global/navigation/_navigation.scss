@@ -95,9 +95,33 @@
 
 
       .navigation_btn {
-        h1 {
-          color: var(--black_-1);
+        border: 2px double transparent;
+        border-radius: 13px;
+        background-image: linear-gradient(rgb(13, 14, 33), 
+        rgb(13, 14, 33)), 
+        radial-gradient(circle at left top, 
+        var(--blue), var(--red));
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        box-shadow: 0px 16px 11px -8px rgba(0, 0, 0, 0.71);
+        text-align: center;
+
+       
+        .button_container {
+            display: flex;
+            flex-direction: column;
         }
+
+        h4 {
+          color: var(--white);
+            position: relative;
+
+          
+        }
+        h5 {
+            color:var(--black_2);
+            margin-top: -5px; 
+         }
       }
 
 

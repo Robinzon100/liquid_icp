@@ -2,7 +2,7 @@ import { CSSProperties, FC, MouseEventHandler } from 'react';
 
 
 interface props {
-    size: number,
+    size?: number,
     textColor?: string;
     className?: string,
     id?: string,

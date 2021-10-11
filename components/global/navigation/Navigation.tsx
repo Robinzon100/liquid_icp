@@ -11,35 +11,36 @@ const Navigation = () => {
     useEffect(() => {
 
         //HAMBURGER ANIMATION
-        tl.to(".hamburger .inner:nth-child(2)",{
-            right:-70,
-            duration:.3,
-        }).to(".hamburger .inner:nth-child(1)",{
-            rotate:45,
-            top:10,
-            duration:.8,
-            ease:"sine.in"
-        },"-=1").to(".hamburger .inner:nth-child(3)",{
-            rotate:-45,
-            top:-10,
-            duration:.8,
-            ease:"sine.in"
-        },"-=1")
+        // tl.to(".hamburger .inner:nth-child(1)",{
+        //     rotate:"45deg",
+        //     top:10,
+        //     scale:0.1,
+        //     transformOrigin:"50% 50%",
+        //     duration:.2,
+        //     ease:"sine.in"
+        // },"-=1").to(".hamburger .inner:nth-child(2)",{
+        //     right:-70,
+        //     duration:.7,
+        // }).to(".hamburger .inner:nth-child(3)",{
+        //     rotate:"-45deg",
+        //     top:-10,
+        //     duration:.7,
+        //     ease:"sine.in"
+        // },"-=1")
         
         
        // NAVIGATION ANIMATION 
         tl.to(".item", {
-            duration: .2,
+            duration: .3,
             // ease: "power2.out",
             y: "280px",
             opacity: 1
         }).to(".links", {
-            duration:.2,
+            duration:.3,
             y:0,
             opacity:1,
             stagger: {
                 each: 0.05,
-                ease: "power1.in"
             }
         }).reverse()
 
@@ -82,9 +83,15 @@ const Navigation = () => {
 
 
                         <Button
-                            size={1.5}
+                         size={1.2}
                             className="btn btn_white navigation_btn">
-                            <h1 className="f-size-p3 f-weight-r">join LICP Airdrop</h1>
+                            <h4 className="f-size-p3 f-weight-r">
+                                Enter App
+                            </h4>
+
+
+                            <h5 className="f-size-p8">(coming soon)</h5>
+
 
                         </Button>
 
