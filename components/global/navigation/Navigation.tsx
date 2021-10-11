@@ -90,7 +90,7 @@ const Navigation = () => {
                             </li>
                             <li className="links">
                                 <Link href="#" passHref>
-                                    <h1 className="f-size-p2">Road Map</h1>
+                                    <h1 className="f-size-p2">Roadmap</h1>
                                 </Link>
 
                             </li>
