@@ -339,6 +339,10 @@ const Hero = () => {
             })
 
 
+            setTimeout(() => {
+                _logo.rotation.z = 0
+            }, 8000);
+
 
 
 
