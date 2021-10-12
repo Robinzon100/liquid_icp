@@ -79,10 +79,10 @@ overflow: hidden;
   canvas {
     width: 100% !important;
     height: 100% !important;
+    filter: contrast(1.01);
 
-
-    // @media only screen and (max-width: 550px) {
-    //   height: 50vh !important;
-    // }
+    @media only screen and (max-width: $medium_screen_query) {
+        filter: none !important;
+    }
   }
 }

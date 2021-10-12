@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }:AppProps) {
                             immediate withdrawal of ICP coins at
                             any given time."
         favIconImagePath="/svg/logo.svg"
-        baseUrl="/meta_images/og_image.png"
+        baseUrl="https://liquid-icp.vercel.app"
         ogTitle="Liquid ICP ∞"
         ogDescription="Liquid ICP is world's first s-Bridge
                             where bridged and staked assets remain
