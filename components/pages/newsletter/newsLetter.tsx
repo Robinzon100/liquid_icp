@@ -19,7 +19,7 @@ const Newsletter = () => {
             setTimeout(() => {
                 setSentStatus(false)
             }, 5000);
-        }else{
+        } else {
             return
         }
     }
@@ -36,7 +36,13 @@ const Newsletter = () => {
 
                     <div className="inputs">
                         <div className="input_container">
-                            <input onChange={(e) => setEmail(e.target.value)} value={email} className='input' type="email" name="email" />
+                            <input
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                placeholder='some.Email@gmail.com'
+                                className='input'
+                                type="email"
+                                name="email" />
                         </div>
                         <Button
                             onClick={() => handleSendEmail()}
