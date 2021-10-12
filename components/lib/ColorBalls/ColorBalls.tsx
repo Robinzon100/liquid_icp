@@ -33,6 +33,8 @@ const ColorBalls = ({ bgColor, left, top, width, height, className }: ColorBalls
                     position: absolute;
                     z-index: 100;
                     border-radius: 100px;
+                    pointer-events:none;
+                    
                     }
                 `}
                 </style>

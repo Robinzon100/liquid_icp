@@ -3,11 +3,11 @@ const Footer = () => {
     const socialsData = [
         {
             image: "/images/telegram.png",
-            url: "https://www.youtube.com/watch?v=lIQrUZLyATo&list=PLinuJh6RfGPMLw5fB4nXZoUYz9oebv9Bo&index=178&ab_channel=El2546"
+            url: "https://t.me/Liquid_ICP"
         },
         {
             image: "/images/discord.png",
-            url: "https://careerkarma.com/blog/bold-text-html/"
+            url: "https://discord.com/invite/3F8CYyPpHq"
         },
         {
             image: "/images/twitter.png",
@@ -48,7 +48,7 @@ const Footer = () => {
 
                     <div className="documentation">
                         <h1 className="f-size-h8 f-weight-l">Documentation <br />
-                            <a href="#" target="_blank">
+                            <a href="https://docs.icp-20.com/" target="_blank">
                                 <strong className="f-weight-bl">
                                     GitBook
                                 </strong>

@@ -8,19 +8,23 @@ const Partners = () => {
     const partnersData = [
         {
             image: "/images/chain_link.png",
-            url:"#"
+            url:"https://chain.link/"
         },
         {
             image: "/images/polygon.png",
-            url:"#"
+            url:"https://www.polygon.com/"
         },
         {
             image: "/images/dfinity.png",
-            url:"#"
+            url:"https://dfinity.org/"
         },
         {
             image: "/images/aragon.png",
-            url:"#"
+            url:"https://aragon.org/"
+        },
+        {
+            image: "/images/oxeni.png",
+            url:"https://twitter.com/oxeni_studio"
         }
     ]
 
@@ -42,7 +46,7 @@ const Partners = () => {
                         <div className="partner"
                             key={i}>
 
-                            <a href={el.url}>
+                            <a href={el.url} target="_blank">
 
                                 <div className="img"
                                     style={{ backgroundImage: `url(${el.image})` }}

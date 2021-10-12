@@ -1,13 +1,22 @@
 [
   {
     "id": 1,
-    "image": "https://images.unsplash.com/photo-1632338528496-877ff975d1a2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
-    "title": "Bridge from Dfinity to EVM compatible blockchains"
+    "image": "/images/Shanazar_Babakuloglu.png",
+    "title": "Shanazar_Babakuloglu",
+    "github":"/images/github.png",
+    "githubUrl":"https://github.com/Soolking-cyber"
   },
   {
     "id": 2,
-    "image": "https://images.unsplash.com/photo-1632338528496-877ff975d1a2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
-    "title": "Participate in rich DeFi ecosystems"
+    "image": "/images/Medet_Ahmetson.png",
+    "title": "Medet_Ahmetson",
+    "github":"/images/github.png",
+    "githubUrl":"https://github.com/ahmetson"
+  },
+  {
+    "id": 3,
+    "image": "/images/Kyle_Hamrayev.png",
+    "title": "Kyle_Hamrayev"
   }
  
 ]

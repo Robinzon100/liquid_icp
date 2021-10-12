@@ -132,13 +132,25 @@ const ColorDisplacement = ({ imagesArray }) => {
                 <div id="content">
 
                     <div id="planes">
-                        {imagesArray.map(el => (
-                            <div key={el.id} className="plane-wrapper">
+                        {imagesArray.map((el, i) => (
+                            <div key={i} className="plane-wrapper">
                                 <div className="plane-inner">
                                     <div className="plane">
                                         <img src={el.image} crossOrigin="" data-sampler="planeTexture" alt="pic" />
                                     </div>
-                                    <h1 className="displacement_title">{el.title}</h1>
+
+                                    <div className="title">
+
+                                        <a href={el.githubUrl} target="_blank">
+                                            <div className="github"
+                                                style={{ backgroundImage: `url(${el.github})` }}
+
+                                            />
+                                        </a>
+                                        <h1 className="member">{el.title}</h1>
+
+                                    </div>
+
                                 </div>
                             </div>
                         ))}

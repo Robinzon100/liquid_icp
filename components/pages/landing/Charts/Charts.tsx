@@ -67,19 +67,19 @@ const Charts = () => {
                     <div className="fund_distribution">
                         <div className="item" >
                             <div className="circle purple" />
-                            <h1 className="f-size-p3">60% - IDO</h1>
+                            <h1 className="f-size-p3">50% - NNS stacking</h1>
                         </div>
 
                         <div className="item" >
                             <div className="circle blue" />
-                            <h1 className="f-size-p3">25% - delvelopment &
-                                <br />marketing reserves
+                            <h1 className="f-size-p3">30% - liquidity 
+                                <br />pool
                             </h1>
                         </div>
                         <div className="item" >
                             <div className="circle red" />
-                            <h1 className="f-size-p3">15% - team & <br />
-                                advisors
+                            <h1 className="f-size-p3">20% - marketing and<br />
+                                developers
                             </h1>
                         </div>
 

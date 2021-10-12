@@ -33,6 +33,7 @@
 
       @media only screen and (max-width: $small_screen_query) {
         margin-top: 1rem;
+        width: 100%;
       }
 
       a {
@@ -64,6 +65,7 @@
       @media only screen and (max-width: $small_screen_query) {
         justify-content: space-evenly;
         margin: 2rem 0;
+        border-radius: 36px;
       }
 
       :not(:first-child) {
