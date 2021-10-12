@@ -18,8 +18,8 @@ function MyApp({ Component, pageProps }:AppProps) {
                             by Liquid ICP community and ensures
                             immediate withdrawal of ICP coins at
                             any given time."
-        favIconImagePath="/svg/small_icon.svg"
-        baseUrl="https://oxeni.dev/meta_images/og_image.png"
+        favIconImagePath="/svg/logo.svg"
+        baseUrl="/meta_images/og_image.png"
         ogTitle="Liquid ICP ∞"
         ogDescription="Liquid ICP is world's first s-Bridge
                             where bridged and staked assets remain
