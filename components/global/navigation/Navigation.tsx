@@ -1,15 +1,14 @@
 import Button from "components/lib/button/Button"
 import Link from "next/link"
 import { gsap } from "gsap"
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
 
 
 const Navigation = () => {
-    const tl = gsap.timeline({paused:true,reversed:true});
+    const tl = gsap.timeline({ paused: true, reversed: true });
 
 
     useEffect(() => {
-
         //HAMBURGER ANIMATION
         tl.to(".hamburger .inner:nth-child(1)", {
             y: "-9px",
@@ -36,12 +35,12 @@ const Navigation = () => {
             .to(".hamburger .inner:nth-child(1)", {
                 rotationZ: 45,
                 transformOrigin: "50% 50%",
-                duration:.2
+                duration: .2
             }, 'rotate')
             .to(".hamburger .inner:nth-child(3)", {
                 rotationZ: -45,
                 transformOrigin: "50% 50%",
-                duration:.2
+                duration: .2
             }, 'rotate')
 
 
@@ -50,13 +49,15 @@ const Navigation = () => {
 
 
         // NAVIGATION ANIMATION 
-        tl.to(".navigation_items .item", {
+        tl.to('.navigation', {
+            background: 'var(--black_-1)',
+            duration: .3,
+        }).to(".navigation_items .item", {
             duration: .1,
             // ease: "power2.out",
             y: "280px",
             opacity: 1,
-            display:"flex",
-           
+            display: "flex",
         }).to(".links", {
             duration: .3,
             y: 0,
@@ -71,12 +72,14 @@ const Navigation = () => {
 
 
     const OnToggle = () => {
-        tl.reversed() ? tl.restart() : tl.reverse()
+        tl.reversed() ? tl.restart() : tl.reverse();
     }
+
+
 
     return (
         <>
-            <header className="navigation">
+            <header className="navigation" >
                 <div className="navigation_container">
 
                     <div className="navigation_items">
@@ -84,21 +87,21 @@ const Navigation = () => {
 
                         <ul className="item">
                             <li className="links">
-                                <Link href="#" passHref>
+                                <a href="#tokenomics">
                                     <h1 className="f-size-p2">Tokenomics</h1>
-                                </Link>
+                                </a>
 
                             </li>
                             <li className="links">
-                                <Link href="#" passHref>
+                                <a href="#roadmap">
                                     <h1 className="f-size-p2">Roadmap</h1>
-                                </Link>
+                                </a>
 
                             </li>
                             <li className="links">
-                                <Link href="#">
+                                <a href="#page-wrap">
                                     <h1 className="f-size-p2">Team</h1>
-                                </Link>
+                                </a>
                             </li>
                         </ul>
 

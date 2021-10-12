@@ -45,21 +45,31 @@ body {
     font-family: 'Heebo', 'Satoshi';
     color: var(--white);
     background-color: var(--black_-1);
+    scroll-behavior: smooth;
 
     * {
         ::-moz-selection {
-            background: rgb(22, 22, 22) !important;
+            background: var(--blue) !important;
             color: white
         }
 
         ::selection {
-            background: rgb(22, 22, 22) !important;
+            background: var(--blue) !important;
             color: white
         }
     }
 
-    h1,h2,h3,p {
-        color:var(--white_1);
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
+
+ 
+
+    h1,
+    h2,
+    h3,
+    p {
+        color: var(--white_1);
     }
 }
 

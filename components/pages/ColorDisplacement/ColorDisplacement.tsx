@@ -126,7 +126,7 @@ const ColorDisplacement = ({ imagesArray }) => {
 
     return (
         <>
-            <div id="page-wrap">
+            <div id="page-wrap" >
                 <div id="canvas"></div>
 
                 <div id="content">
