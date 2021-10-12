@@ -15,6 +15,7 @@ import Footer from "components/global/footer/Footer";
 
 // OTHER IMPORTS
 import ImagesArray from "components/pages/ColorDisplacement/json/ImagesArray.json"
+import Newsletter from 'components/pages/newsletter/newsLetter';
 
 
 
@@ -48,6 +49,7 @@ const index = () => {
             <RoadMap />
             <Partners />
             <ColorDisplacement imagesArray={ImagesArray} />
+            <Newsletter />
             <Footer />
 
         </>
