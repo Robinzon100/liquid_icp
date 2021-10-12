@@ -54,8 +54,14 @@
 }
 
 .plane-inner {
+    
+
     .title {
         @include flex(initial,center,row);
+        .member:nth-child(3) {
+            margin-left: 0;
+        }
+
         .member {
             margin-top: 1.2rem;
             color: var(--white_1);

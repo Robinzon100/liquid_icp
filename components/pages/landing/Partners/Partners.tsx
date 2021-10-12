@@ -25,6 +25,10 @@ const Partners = () => {
         {
             image: "/images/oxeni.png",
             url:"https://twitter.com/oxeni_studio"
+        },
+        {
+            image: "/images/sushi.png",
+            url:"https://sushi.com/"
         }
     ]
 
