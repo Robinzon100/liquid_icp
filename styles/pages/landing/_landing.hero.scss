@@ -8,7 +8,6 @@
         display: flex;
         height: 100vh;
 
-
         &::after {
             @include after;
             position: absolute;
@@ -23,10 +22,12 @@
                     #0A0A0D 98.79%);
         }
 
+
         .hero_landing_canvas {
             position: absolute;
             z-index: 1;
         }
+
 
         .content {
             position: relative;
@@ -34,7 +35,7 @@
             align-self: center;
             margin-left: 10vw;
             max-width: 42.5rem;
-            width: 100%;
+            width: 90%;
 
             h1 {
                 position: relative;
@@ -42,11 +43,11 @@
                 &::after {
                     @include after;
                     position: absolute;
-                    top: -20%;
+                    top: -27%;
                     left: -1.5%;
                     width: 40%;
                     height: 30%;
-                    @include background-image('/images/heading_deco.png')
+                    @include background-image('/images/heading_deco.png', contain, left)
                 }
             }
 
@@ -58,14 +59,57 @@
             .button_group {
                 margin-top: 3vw;
 
-               
-
                 .btn:nth-child(2) {
                     margin-left: 5%;
                 }
             }
         }
     }
+}
 
+
+@media screen and (max-width: 750px) {
+    .hero_landing_main {
+
+        .hero_landing_container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: initial;
+
+
+            &::after {
+                top: 27vh;
+                left: 0;
+            }
+
+
+            .hero_landing_canvas {
+                position: initial !important;
+                z-index: 1;
+                height: 70vh;
+            }
+
+
+            .content {
+                margin: 20vw auto !important;
+                z-index: 5;
+                align-self: center;
+
+                .button_group {
+                    display: flex;
+                    flex-direction: column;
+
+                    .button {
+                        margin: 2vw 0 !important;
+                    }
+
+                    .button_container {
+                        padding: 1rem 0;
+                    }
+                }
+            }
+        }
+    }
 
 }

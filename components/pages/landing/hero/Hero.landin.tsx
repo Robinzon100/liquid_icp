@@ -105,7 +105,7 @@ const Hero = () => {
 
         const sizes = {
             width: window.innerWidth,
-            height: window.innerHeight
+            height: window.innerWidth < 750 ? window.innerHeight * .5 : window.innerHeight
         }
 
         const postProcessingParams = {
@@ -136,7 +136,7 @@ const Hero = () => {
 
 
         //============================ CAMERA
-        const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.01, 1000);
+        const camera = new THREE.PerspectiveCamera(65, sizes.width / sizes.height, 0.01, 1000);
         camera.position.set(0, 1.10, -3.45);
         camera.focus = 1;
 
@@ -170,7 +170,7 @@ const Hero = () => {
         composer.addPass(renderPass);
         const renderScene = new RenderPass(scene, camera);
 
-        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 1.5, 0.4, 0.85);
         bloomPass.threshold = postProcessingParams.bloomThreshold;
         bloomPass.strength = postProcessingParams.bloomStrength;
         bloomPass.radius = postProcessingParams.bloomRadius;
@@ -301,6 +301,17 @@ const Hero = () => {
         const initAnimation = () => {
             const tl = gsap.timeline()
 
+            if (window.innerWidth < 750) {
+                tl.fromTo('.animate_UI', {
+                    x: 15,
+                    opacity: 0,
+                }, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1,
+                })
+            }
+
             tl.to(_logo.rotation, {
                 x: -1.5,
                 y: 0,
@@ -335,34 +346,53 @@ const Hero = () => {
 
 
 
-            tl.add('final_scenes')
-            tl.to(camera.rotation, {
-                y: 1,
-                duration: 3,
-                delay: 1,
-                ease: 'none'
-            }, 'final_scenes')
-                .to(camera.position, {
-                    x: 6.85,
-                    y: 1.10,
-                    z: 11.10,
+
+            if (window.innerWidth < 750) {
+
+                tl.add('final_scenes')
+                tl.to(camera.rotation, {
+                    y: 1,
                     duration: 3,
+                    delay: 1,
                     ease: 'none'
                 }, 'final_scenes')
+                    .to(camera.position, {
+                        x: 6.85,
+                        y: 1.10,
+                        z: 11.10,
+                        duration: 3,
+                        ease: 'none'
+                    }, 'final_scenes')
 
-                .to(scene.position, {
-                    x: 15,
-                    delay: 2,
-                    duration: 2,
+            } else {
+                tl.add('final_scenes')
+                tl.to(camera.rotation, {
+                    y: 1,
+                    duration: 3,
+                    delay: 1,
+                    ease: 'none'
                 }, 'final_scenes')
-                .fromTo('.animate_UI', {
-                    x: 15,
-                    opacity: 0,
-                }, {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1,
-                })
+                    .to(camera.position, {
+                        x: 6.85,
+                        y: 1.10,
+                        z: 11.10,
+                        duration: 3,
+                        ease: 'none'
+                    }, 'final_scenes')
+                    .to(scene.position, {
+                        x: 15,
+                        delay: 2,
+                        duration: 2,
+                    }, 'final_scenes')
+                    .fromTo('.animate_UI', {
+                        x: 15,
+                        opacity: 0,
+                    }, {
+                        x: 0,
+                        opacity: 1,
+                        duration: 1,
+                    })
+            }
 
             tl.add('logo')
             tl.to(_logo.rotation, {
@@ -402,7 +432,7 @@ const Hero = () => {
         //============================ RESIZE
         window.addEventListener("resize", () => {
             sizes.width = window.innerWidth;
-            sizes.height = window.innerHeight;
+            sizes.height = window.innerWidth < 750 ? window.innerHeight * .5 : window.innerHeight;
 
             camera.aspect = sizes.width / sizes.height;
             camera.updateProjectionMatrix();
@@ -456,16 +486,16 @@ const Hero = () => {
     return (
         <>
             <div className="hero_landing_main">
-               
-                 <ColorBalls
-                   bgColor="var(--red)" 
-                   left="98%"
-                   top="-7%"
-                   width="12rem"
-                   height="12rem"
+
+                <ColorBalls
+                    bgColor="var(--red)"
+                    left="98%"
+                    top="-7%"
+                    width="12rem"
+                    height="12rem"
                 />
-                
-                
+
+
                 {/* <Loading /> */}
                 <div className="hero_landing_container">
                     <canvas className="hero_landing_canvas" />
