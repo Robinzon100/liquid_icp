@@ -55,14 +55,16 @@ const Footer = () => {
                             </a>
                         </h1>
                     </div>
+
+                    <div className="rights">
+
+                        <h1 className="f-size-p3 f-weight-l">
+                            2021 © icp-20.com All rights reserved
+                        </h1>
+                    </div>
                 </div>
 
-                <div className="rights">
 
-                    <h1 className="f-size-p3 f-weight-l">
-                        2021 © icp-20.com All rights reserved
-                    </h1>
-                </div>
 
             </div>
         </>
