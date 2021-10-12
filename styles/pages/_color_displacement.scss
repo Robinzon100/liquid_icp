@@ -1,6 +1,7 @@
 .flex-wrapper {
   display: flex;
   flex-wrap: wrap;
+  width: 24rem;
 }
 
 #page-wrap {
@@ -45,7 +46,17 @@
 
 .plane-wrapper {
   position: relative;
-  width: 30rem;
+  width: 24rem;
+
+  @media screen and (max-width: 1550px) {
+    width: 20rem !important;
+  }
+  @media screen and (max-width: 1250px) {
+    width: 18rem !important;
+  }
+  @media screen and (max-width: 750px) {
+    width: 100% !important;
+  }
 }
 
 .plane {
@@ -53,12 +64,12 @@
   width: 100%;
 }
 
-div.plane-wrapper:nth-child(3)
-  > div:nth-child(1)
-  > div:nth-child(2)
-  > h1:nth-child(2) {
-  margin-left: 0;
-}
+// div.plane-wrapper:nth-child(3)
+//   > div:nth-child(1)
+//   > div:nth-child(2)
+//   > h1:nth-child(2) {
+//   margin-left: 0;
+// }
 
 .plane-inner {
   .title {

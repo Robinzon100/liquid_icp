@@ -8,27 +8,27 @@ const Partners = () => {
     const partnersData = [
         {
             image: "/images/chain_link.png",
-            url:"https://chain.link/"
+            url: "https://chain.link/"
         },
         {
             image: "/images/polygon.png",
-            url:"https://www.polygon.com/"
+            url: "https://www.polygon.com/"
         },
         {
             image: "/images/dfinity.png",
-            url:"https://dfinity.org/"
+            url: "https://dfinity.org/"
         },
         {
             image: "/images/aragon.png",
-            url:"https://aragon.org/"
+            url: "https://aragon.org/"
         },
         {
             image: "/images/oxeni.png",
-            url:"https://twitter.com/oxeni_studio"
+            url: "https://twitter.com/oxeni_studio"
         },
         {
             image: "/images/sushi.png",
-            url:"https://sushi.com/"
+            url: "https://sushi.com/"
         }
     ]
 
@@ -47,7 +47,8 @@ const Partners = () => {
 
                 <div className="partners_container">
                     {partnersData.map((el, i) => (
-                        <div className="partner"
+                        <div
+                            className="partner"
                             key={i}>
 
                             <a href={el.url} target="_blank">

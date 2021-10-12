@@ -1,23 +1,23 @@
 .icons_main {
-margin-top: 10rem;
-position: relative;
-overflow: hidden;
+  margin-top: 10rem;
+  position: relative;
+  overflow: hidden;
 
-.heading {
+  .heading {
     text-align: center;
-}
+  }
 
   .icons-container {
     background: var(--black_-1);
     position: relative;
-    margin-top: 5rem;
+    margin-top: 0rem;
 
 
     @media only screen and (max-width: 960px) {
       height: initial !important;
     }
 
-    
+
     .icon_container {
       position: relative;
       display: grid;
@@ -82,7 +82,7 @@ overflow: hidden;
     filter: contrast(1.01);
 
     @media only screen and (max-width: $medium_screen_query) {
-        filter: none !important;
+      filter: none !important;
     }
   }
 }

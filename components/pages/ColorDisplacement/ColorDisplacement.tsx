@@ -142,10 +142,10 @@ const ColorDisplacement = ({ imagesArray }) => {
                                     <div className="title">
 
                                         <a href={el.githubUrl} target="_blank">
-                                            {i < 2 && <div className="github"
+                                            <div className="github"
                                                 style={{ backgroundImage: `url(${el.github})` }}
-                                            />}
-                                                
+                                            />
+
                                         </a>
                                         <h1 className="member">{el.title}</h1>
 

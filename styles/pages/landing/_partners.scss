@@ -8,11 +8,11 @@
   .partners_container {
       margin: 0 auto;
       width: 100%;
-      max-width: 60rem;
       @include flex(center,center,row);
       flex-wrap: wrap;
       gap: 20px 100px;
       padding: 0 0.8rem;
+      max-width: 90rem;
 
 
     .partner {

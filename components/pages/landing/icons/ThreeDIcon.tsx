@@ -30,7 +30,7 @@ const ThreeDIcon: FC = () => {
     return (
         <>
             <div className="icons_main" id='tokenomics'>
-              <IconGradients/> 
+              <IconGradients/>
 
                 <div className="heading">
                     <h1 className="f-size-h1 f-weight-bo">Tokenomics</h1>
