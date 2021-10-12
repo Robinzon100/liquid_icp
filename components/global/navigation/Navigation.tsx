@@ -1,7 +1,6 @@
 import Button from "components/lib/button/Button"
-import Link from "next/link"
 import { gsap } from "gsap"
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
 const Navigation = () => {

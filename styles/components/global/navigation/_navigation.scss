@@ -2,7 +2,8 @@
   position: fixed;
   width: 100%;
   z-index: 99;
-  background: linear-gradient(180deg, #0A0A0D -0.29%, rgba(20, 21, 34, 0) 100%);
+  background: linear-gradient(180deg, #0A0A0D -0.29%, 
+  rgba(20, 21, 34, 0) 100%);
 
 
     @media only screen and (max-width: $medium_screen_query) {
@@ -80,16 +81,20 @@
             transform: translateY(-10px);
           }
 
-          h1 {
-            font-family: "Heebo";
-            opacity: 80%;
-            font-weight: $f-weight-light;
-            
-            
-            &:hover {
-              opacity: 100%;
-            }
+          a {
+              text-decoration: none;
+            h1 {
+                font-family: "Heebo";
+                opacity: 80%;
+                font-weight: $f-weight-light;
+                
+                
+                &:hover {
+                  opacity: 100%;
+                }
+              }
           }
+          
         }
       }
 

@@ -66,8 +66,14 @@
     }
 
     .grid-el {
+      border: 1px solid;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 36px;
+      padding: 2rem;
+
       @media only screen and (max-width: 960px) {
         text-align: center;
+        width: 100%;
       }
 
       :not(:first-child) {
