@@ -24,22 +24,22 @@ const ColorDisplacement = ({ imagesArray }) => {
         })
 
         curtains.onRender(() => {
-            scrollEffect = curtains.lerp(scrollEffect, 0, 0.08);
+            scrollEffect = curtains.lerp(scrollEffect, 0, 0.07);
         }).onScroll(() => {
             const delta = curtains.getScrollDeltas();
 
             delta.y = -delta.y;
 
             // threshold
-            if (delta.y > 40) {
-                delta.y = 40;
+            if (delta.y > 80) {
+                delta.y = 80;
             }
-            else if (delta.y < -40) {
-                delta.y = -40;
+            else if (delta.y < -80) {
+                delta.y = -80;
             }
 
             if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
-                scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.8);
+                scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.05);
             }
 
         }).onError(() => {
@@ -142,10 +142,10 @@ const ColorDisplacement = ({ imagesArray }) => {
                                     <div className="title">
 
                                         <a href={el.githubUrl} target="_blank">
-                                            <div className="github"
+                                            {i < 2 && <div className="github"
                                                 style={{ backgroundImage: `url(${el.github})` }}
-
-                                            />
+                                            />}
+                                                
                                         </a>
                                         <h1 className="member">{el.title}</h1>
 
