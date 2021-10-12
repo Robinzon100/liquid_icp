@@ -23,11 +23,11 @@ const Footer = () => {
                 <div className="footer_container">
                     <div className="contact_us">
                         <h1 className="f-size-h8 f-weight-l">Contact us <br />
-                        <a href="mailto:" target="#">
-                            <strong className="f-weight-bl">
-                                contact@icp-20.com
-                            </strong>
-                        </a>
+                            <a href="mailto:contact@icp-20.com" target="#">
+                                <strong className="f-weight-bl">
+                                    contact@icp-20.com
+                                </strong>
+                            </a>
                         </h1>
 
                     </div>
@@ -56,6 +56,14 @@ const Footer = () => {
                         </h1>
                     </div>
                 </div>
+
+                <div className="rights">
+
+                    <h1 className="f-size-p3 f-weight-l">
+                        2021 © icp-20.com All rights reserved
+                    </h1>
+                </div>
+
             </div>
         </>
     )
