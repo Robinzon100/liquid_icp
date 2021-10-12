@@ -308,7 +308,10 @@ const Hero = () => {
                 }, {
                     x: 0,
                     opacity: 1,
-                    duration: 1,
+                    duration: .5,
+                    stagger: {
+                        each: 0.1
+                    }
                 })
             }
 
@@ -341,7 +344,6 @@ const Hero = () => {
 
             setTimeout(() => {
                 _logo.rotation.z = 0
-                // _globalTimeline.kill()
             }, 8000);
 
 
@@ -391,6 +393,9 @@ const Hero = () => {
                         x: 0,
                         opacity: 1,
                         duration: 1,
+                        stagger: {
+                            each: 0.1
+                        }
                     })
             }
 
@@ -496,7 +501,7 @@ const Hero = () => {
                 />
 
 
-                {/* <Loading /> */}
+                <Loading />
                 <div className="hero_landing_container">
                     <canvas className="hero_landing_canvas" />
 

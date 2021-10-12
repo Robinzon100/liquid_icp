@@ -6,6 +6,7 @@
     position: fixed;
     @include flex();
     user-select: none !important;
+    pointer-events: none;
 
     .heading {
         color: var(--white);
