@@ -24,7 +24,7 @@ const ColorDisplacement = ({ imagesArray }) => {
         })
 
         curtains.onRender(() => {
-            scrollEffect = curtains.lerp(scrollEffect, 0, 0.07);
+            scrollEffect = curtains.lerp(scrollEffect, 0, 0.2);
         }).onScroll(() => {
             const delta = curtains.getScrollDeltas();
 
@@ -39,7 +39,7 @@ const ColorDisplacement = ({ imagesArray }) => {
             }
 
             if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
-                scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.05);
+                scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.7);
             }
 
         }).onError(() => {

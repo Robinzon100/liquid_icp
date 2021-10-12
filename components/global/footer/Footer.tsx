@@ -56,15 +56,29 @@ const Footer = () => {
                         </h1>
                     </div>
 
-                    <div className="rights">
 
-                        <h1 className="f-size-p3 f-weight-l">
-                            2021 © icp-20.com All rights reserved
-                        </h1>
-                    </div>
+
+
                 </div>
 
 
+
+                <div className="madebyOxeni">
+
+                    <h1 className="f-size-p3 f-weight-l">
+                        website made by:
+                    </h1>
+                    <div className="oxeni_logo"></div>
+                </div>
+
+
+
+                <div className="rights">
+
+                    <h1 className="f-size-p3 f-weight-l">
+                        2021 © icp-20.com All rights reserved
+                    </h1>
+                </div>
 
             </div>
         </>
