@@ -33,7 +33,7 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
     //============================ SCENE
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#020202');
+    // scene.background = new THREE.Color('#020202');
 
     scene.fog = new THREE.Fog(0x000000, 10, 20);
 
@@ -98,25 +98,25 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
 
     //============================ POSTPROCESSING 
-    let composer = new EffectComposer(renderer, renderTarget);
-    const renderPass = new RenderPass(scene, camera);
-    renderPass.clear = false
-    renderPass.clearAlpha = 0
-    renderPass.renderToScreen = false
+    // let composer = new EffectComposer(renderer, renderTarget);
+    // const renderPass = new RenderPass(scene, camera);
+    // renderPass.clear = false
+    // renderPass.clearAlpha = 0
+    // renderPass.renderToScreen = false
 
-    const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
-    const renderScene = new RenderPass(scene, camera);
-    if (window.innerWidth > 750) {
-        const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 4, 1, 0.1);
-        bloomPass.threshold = postProcessingParams.bloomThreshold;
-        bloomPass.strength = postProcessingParams.bloomStrength;
-        bloomPass.radius = postProcessingParams.bloomRadius;
+    // const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
+    // const renderScene = new RenderPass(scene, camera);
+    // if (window.innerWidth > 750) {
+    //     const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 4, 1, 0.1);
+    //     bloomPass.threshold = postProcessingParams.bloomThreshold;
+    //     bloomPass.strength = postProcessingParams.bloomStrength;
+    //     bloomPass.radius = postProcessingParams.bloomRadius;
 
-        composer.addPass(gammaCorrectionPass);
-        composer.addPass(renderPass);
-        composer.addPass(renderScene);
-        composer.addPass(bloomPass);
-    }
+    //     composer.addPass(gammaCorrectionPass);
+    //     composer.addPass(bloomPass);
+    // }
+    // composer.addPass(renderPass);
+    // composer.addPass(renderScene);
 
 
 
@@ -137,8 +137,8 @@ export const createScene = (scale: number, elementQueryString: string) => {
         camera.updateProjectionMatrix();
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        composer.setSize(sizes.width, sizes.height);
-        composer.setSize(window.innerWidth, window.innerHeight);
+        // composer.setSize(sizes.width, sizes.height);
+        // composer.setSize(window.innerWidth, window.innerHeight);
     })
 
 
@@ -178,8 +178,8 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
 
         renderer.clear();
-        // renderer.render(scene, camera);
-        composer.render();
+        renderer.render(scene, camera);
+        // composer.render();
         requestAnimationFrame(animate);
     }
     animate()
