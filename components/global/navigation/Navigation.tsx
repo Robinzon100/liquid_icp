@@ -1,6 +1,6 @@
 import Button from "components/lib/button/Button"
 import { gsap } from "gsap"
-import { useEffect  } from 'react';
+import { useEffect } from 'react';
 
 
 const Navigation = () => {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 
 import gsap from "gsap";
@@ -20,7 +19,6 @@ gsap.registerPlugin(ScrollTrigger)
 //import{ fragment } from "./shaders/fragmentShader";
 //import{ vertex } from "./shaders/vertexShader";
 
-import { Pane } from "tweakpane"
 
 
 // COMPONENETS
@@ -33,15 +31,15 @@ import ColorBalls from "components/lib/ColorBalls/ColorBalls";
 
 
 const Hero = () => {
-    const [ready, setReady] = useState(false)
-    const [loadedElements, setLoadedElements] = useState(0)
+    // const [ready, setReady] = useState(false)
+    // const [loadedElements, setLoadedElements] = useState(0)
     let _logo
     let _town
     let _cameraLook = {
         isLooking: true
     }
 
-    const _globalTimeline = gsap.timeline()
+    // const _globalTimeline = gsap.timeline()
 
     const [cursor,] = useState({ x: 0, y: 0 })
 
@@ -59,14 +57,14 @@ const Hero = () => {
     const init = () => {
         // const pane: any = new Pane();
 
-        const PARAMS = {
-            c_location_x: 9.5,
-            c_location_y: 6.45,
-            c_location_z: 8,
-            c_rotation_x: 0,
-            c_rotation_y: 0,
-            c_rotation_z: 0,
-        };
+        // const PARAMS = {
+        //     c_location_x: 9.5,
+        //     c_location_y: 6.45,
+        //     c_location_z: 8,
+        //     c_rotation_x: 0,
+        //     c_rotation_y: 0,
+        //     c_rotation_z: 0,
+        // };
 
 
         // pane.addInput(
@@ -121,7 +119,7 @@ const Hero = () => {
 
         //============================ SCENE
         const scene = new THREE.Scene();
-        const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--black_-1')
+        // const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--black_-1')
 
         // scene.background = new THREE.Color('#00000000');
         scene.background = new THREE.Color('#000000');
