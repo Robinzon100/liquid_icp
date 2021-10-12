@@ -12,7 +12,8 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 
 export const createScene = (scale: number, elementQueryString: string) => {
     let mouse = { x: 0, y: 0 }
-    let ppEnabled = window.innerWidth > 750
+    let ppEnabled = false
+    // let ppEnabled = window.innerWidth > 750
     let composer
     const postProcessingParams = {
         exposure: 5,

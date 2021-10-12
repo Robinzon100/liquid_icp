@@ -324,7 +324,6 @@ const Hero = () => {
                 y: 2.0,
                 z: 0,
                 duration: 3,
-                delay: 3,
                 ease: 'power1.out'
             }).to(_town.position, {
                 y: -1,
@@ -339,10 +338,6 @@ const Hero = () => {
                 ease: 'power4.out'
             })
 
-
-            setTimeout(() => {
-                _logo.rotation.z = 0
-            }, 8000);
 
 
 
@@ -365,24 +360,26 @@ const Hero = () => {
                     }, 'final_scenes')
 
             } else {
+
+
+
                 tl.add('final_scenes')
                 tl.to(camera.rotation, {
                     y: 1,
                     duration: 3,
-                    delay: 1,
-                    ease: 'none'
+                    ease: 'circ.out'
                 }, 'final_scenes')
                     .to(camera.position, {
                         x: 6.85,
                         y: 1.10,
                         z: 11.10,
                         duration: 3,
-                        ease: 'none'
+                        ease: 'circ.out'
                     }, 'final_scenes')
                     .to(scene.position, {
                         x: 15,
-                        delay: 2,
-                        duration: 2,
+                        delay: 0,
+                        duration: 3,
                     }, 'final_scenes')
                     .fromTo('.animate_UI', {
                         x: 15,
@@ -392,7 +389,7 @@ const Hero = () => {
                         opacity: 1,
                         duration: 1,
                         stagger: {
-                            each: 0.1
+                            each: 0.3
                         }
                     })
             }
