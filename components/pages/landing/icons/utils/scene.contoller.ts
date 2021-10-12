@@ -106,15 +106,17 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
     const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
     const renderScene = new RenderPass(scene, camera);
-    const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 4, 1, 0.1);
-    bloomPass.threshold = postProcessingParams.bloomThreshold;
-    bloomPass.strength = postProcessingParams.bloomStrength;
-    bloomPass.radius = postProcessingParams.bloomRadius;
+    if (window.innerWidth > 750) {
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 4, 1, 0.1);
+        bloomPass.threshold = postProcessingParams.bloomThreshold;
+        bloomPass.strength = postProcessingParams.bloomStrength;
+        bloomPass.radius = postProcessingParams.bloomRadius;
 
-    composer.addPass(gammaCorrectionPass);
-    composer.addPass(renderPass);
-    composer.addPass(renderScene);
-    composer.addPass(bloomPass);
+        composer.addPass(gammaCorrectionPass);
+        composer.addPass(renderPass);
+        composer.addPass(renderScene);
+        composer.addPass(bloomPass);
+    }
 
 
 
