@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { addGLFModel } from './utils/mesh.controller';
 import { createScene } from './utils/scene.contoller';
 
@@ -32,6 +32,9 @@ const ThreeDIcon: FC = () => {
             <div className="icons_main">
               <IconGradients/> 
 
+                <div className="heading">
+                    <h1 className="f-size-h1 f-weight-bo">Tokenomics</h1>
+                </div>
                 <div className="icons-container">
 
 
