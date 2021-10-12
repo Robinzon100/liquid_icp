@@ -14,6 +14,7 @@ interface props {
     bgColor?: string
     border?: string
     boxShadow?: string
+    href?: string
 }
 
 
@@ -30,8 +31,20 @@ const Button: FC<props> = ({
     bgColor,
     border,
     boxShadow = 'var(--btn_shadow)',
-    // onClick,
-    onHover }) => {
+    onClick,
+    onHover,
+    href }) => {
+
+
+
+    const _onClick = (e) => {
+        if (disabled) {
+            return
+        } else {
+            // @ts-ignore
+            href ? window.open(`${href}`, '_blank'): onClick(e)
+        }
+    }
 
 
 
@@ -40,7 +53,7 @@ const Button: FC<props> = ({
             <button
                 className={`button ${className}`}
                 id={`${id}`}
-                // onClick={(e) => !disabled && onClick(e)}
+                onClick={(e) => _onClick(e)}
                 onMouseOver={onHover}
                 style={style}>
                 <div className={`button_container ${ctaMode && 'cta_mode'}`}>
