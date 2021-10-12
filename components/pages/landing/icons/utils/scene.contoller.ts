@@ -12,6 +12,8 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 
 export const createScene = (scale: number, elementQueryString: string) => {
     let mouse = { x: 0, y: 0 }
+    let ppEnabled = window.innerWidth > 750
+    let composer
     const postProcessingParams = {
         exposure: 5,
         bloomStrength: 0.5,
@@ -33,7 +35,9 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
     //============================ SCENE
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#020202');
+    if (ppEnabled)
+        scene.background = new THREE.Color('#020202');
+
 
     scene.fog = new THREE.Fog(0x000000, 10, 20);
 
@@ -98,15 +102,15 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
 
     //============================ POSTPROCESSING 
-    let composer = new EffectComposer(renderer, renderTarget);
-    const renderPass = new RenderPass(scene, camera);
-    renderPass.clear = false
-    renderPass.clearAlpha = 0
-    renderPass.renderToScreen = false
+    if (ppEnabled) {
+        composer = new EffectComposer(renderer, renderTarget);
+        const renderPass = new RenderPass(scene, camera);
+        renderPass.clear = false
+        renderPass.clearAlpha = 0
+        renderPass.renderToScreen = false
 
-    const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
-    const renderScene = new RenderPass(scene, camera);
-    if (window.innerWidth > 750) {
+        const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
+        const renderScene = new RenderPass(scene, camera);
         const bloomPass = new UnrealBloomPass(new THREE.Vector2(sizes.width, sizes.height), 4, 1, 0.1);
         bloomPass.threshold = postProcessingParams.bloomThreshold;
         bloomPass.strength = postProcessingParams.bloomStrength;
@@ -117,7 +121,6 @@ export const createScene = (scale: number, elementQueryString: string) => {
         composer.addPass(renderScene);
         composer.addPass(bloomPass);
     }
-
 
 
 
@@ -137,8 +140,10 @@ export const createScene = (scale: number, elementQueryString: string) => {
         camera.updateProjectionMatrix();
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        composer.setSize(sizes.width, sizes.height);
-        composer.setSize(window.innerWidth, window.innerHeight);
+        if (ppEnabled) {
+            composer.setSize(sizes.width, sizes.height);
+            composer.setSize(window.innerWidth, window.innerHeight);
+        }
     })
 
 
@@ -178,8 +183,11 @@ export const createScene = (scale: number, elementQueryString: string) => {
 
 
         renderer.clear();
-        // renderer.render(scene, camera);
-        composer.render();
+        if (ppEnabled) {
+            composer.render();
+        } else {
+            renderer.render(scene, camera);
+        }
         requestAnimationFrame(animate);
     }
     animate()
