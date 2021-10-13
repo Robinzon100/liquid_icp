@@ -1,3 +1,5 @@
+import {Disc} from "react-feather"
+
 const Footer = () => {
 
     const socialsData = [
@@ -76,7 +78,7 @@ const Footer = () => {
                 <div className="rights">
 
                     <h1 className="f-size-p3 f-weight-l">
-                        {new Date().getFullYear()} © icp-20.com All rights reserved
+                        {new Date().getFullYear()} Liquid ICP. All rights reserved
                     </h1>
                 </div>
 

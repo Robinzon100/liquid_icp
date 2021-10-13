@@ -127,6 +127,13 @@ const ColorDisplacement = ({ imagesArray }) => {
     return (
         <>
             <div id="page-wrap" >
+            <div className="heading">
+                    <h1 className="f-size-h1 f-weight-bo" 
+                    style={{textAlign:"center",margin:"5rem auto"}}
+                    >
+                        Team
+                    </h1>
+                </div>
                 <div id="canvas"></div>
 
                 <div id="content">

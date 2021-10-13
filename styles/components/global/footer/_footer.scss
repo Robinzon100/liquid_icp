@@ -20,15 +20,17 @@
     padding: 0 2rem;
     position: relative;
 
-    @media only screen and (max-width: $small_screen_query) {
-      flex-flow: column;
-      align-items: center;
-    }
 
 
     @media only screen and (max-width: $medium_screen_query) {
         height: 25rem;
+    }
 
+      
+    @media only screen and (max-width: $small_screen_query) {
+        flex-flow: column;
+        align-items: center;
+        margin-bottom: 1rem;
       }
 
     .contact_us {
@@ -139,6 +141,7 @@
         position: relative;
         align-self: initial;
         padding: initial;
+        margin-right: initial;
     }
 
     h1 {
@@ -148,11 +151,10 @@
 
 
   .madebyOxeni {
-      margin-top: 7vw;
     .oxeni_logo {
         @include background-image("/images/oxeni.png",contain);
-        width: 14rem;
-        height: 7rem;
+        width: 11rem;
+        height: 6rem;
     }
   }
 }

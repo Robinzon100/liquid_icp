@@ -51,7 +51,7 @@
                 }
             }
 
-            p {
+            .description {
                 color: var(--gray);
                 margin-top: 3vw;
             }
@@ -61,6 +61,22 @@
 
                 .btn:nth-child(2) {
                     margin-left: 5%;
+
+                    .button_container {
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;  
+
+                        p {
+                            transform: translateY(-10%);
+                        }
+
+                        h5 {
+                            color: var(--black_2);
+                            position: absolute;
+                            bottom: 2%;
+                        }
+                    }
                 }
             }
         }

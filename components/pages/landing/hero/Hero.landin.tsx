@@ -509,7 +509,7 @@ const Hero = () => {
                             Bridge & Stake <br />
                             your ICP coins
                         </h1>
-                        <p className="f-size-p2 f-weight-l animate_UI">
+                        <p className="description f-size-p2 f-weight-l animate_UI">
                             Liquid ICP is world's first s-Bridge
                             where bridged and staked assets remain
                             liquid. Fractional reserve is governed
@@ -520,15 +520,22 @@ const Hero = () => {
                         <div className="button_group animate_UI">
                             <Button
                                 href="https://docs.google.com/forms/d/e/1FAIpQLSfYXavM5ucEWCm4Po4rYrX8sKXW5Q2nJbe2iT33r8cnxPPzKw/viewform"
-                                size={2}
+                                size={2.2}
                                 className="red_hero_btn f-size-p3 btn btn_gradient">
-                                join LICP Airdrop
+                                join IDO
                             </Button>
                             <Button
                                 href=""
-                                size={2}
-                                className="red_hero_btn f-size-p3 btn btn_black">
-                                s-Bridge Now
+                                size={2.2}
+                                className="red_hero_btn  btn btn_black">
+
+                                <p className="f-size-p3">
+                                    s-Bridge Now
+                                </p>
+
+                                <h5 className="f-size-p8">
+                                    (coming soon)
+                                </h5>
                             </Button>
                         </div>
                     </div>
