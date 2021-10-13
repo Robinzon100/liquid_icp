@@ -9,10 +9,14 @@
   .road-map_background {
     margin-top: 4vw;
     width: 100%;
-    height: 57vw;
+    height: 75vw;
     // min-height: 70rem;
-    @include background-image("/images/road_map_pic.png");
+    @include background-image("/images/road_map_with_text.jpg");
     position: relative;
+
+    @media only screen and (max-width: 960px) {
+        @include background-image("/images/roadmap-min.png");
+    }
 
     &:after {
       @include after();
@@ -33,13 +37,18 @@
   }
 
   .road-map_plans {
+    display: none !important;
     @include flex();
     width: 100%;
     padding: 0 2rem;
-    margin-top: -10vw;
+    margin-top: -12vw;
+
+    @media only screen and (max-width: 960px) {
+        display: flex !important;
+    }
 
     @media only screen and (max-width: $small_screen_query) {
-      margin-top: 10vw;
+      margin-top: -6rem;
     }
 
     .container {
@@ -62,11 +71,14 @@
     }
 
     .grid-el {
-      border: 1px solid;
-      border: 1.5px solid rgba(255, 255, 255, 0.12);
       border-radius: 36px;
       padding: 2rem;
       list-style: none;
+      background: rgba(68, 68, 68, 0.13);
+      border: 1px solid #ffffff7e;
+      box-sizing: border-box;
+      backdrop-filter: blur(77px);
+
 
 
 
