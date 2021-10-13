@@ -33,13 +33,12 @@ const Newsletter = () => {
                 <div className="container">
                     <h1 className='f-size-h3 f-weight-bl'>subscribe to our newsletter</h1>
 
-
                     <div className="inputs">
                         <div className="input_container">
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
                                 value={email}
-                                placeholder='some.Email@gmail.com'
+                                placeholder='contact@icp-20.com'
                                 className='input'
                                 type="email"
                                 name="email" />

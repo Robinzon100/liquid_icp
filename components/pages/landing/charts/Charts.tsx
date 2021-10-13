@@ -10,7 +10,7 @@ const Charts = () => {
                 <div className="chart_container">
                     <div className="heading">
                         <h1 className="f-size-h1 f-weight-bo">
-                            Use of Funds from IDO
+                            Token Distribution
                         </h1>
                     </div>
 
@@ -18,19 +18,23 @@ const Charts = () => {
                     <div className="fund_distribution">
                         <div className="item" >
                             <div className="circle purple" />
-                            <h1 className="f-size-p3">60% - IDO</h1>
+                            <h1 className="f-size-p3">
+                                60% - IDO
+                            </h1>
                         </div>
 
                         <div className="item" >
                             <div className="circle blue" />
-                            <h1 className="f-size-p3">25% - delvelopment &
-                                <br />marketing reserves
+                            <h1 className="f-size-p3">
+                                25% - Delvelopment &
+                                <br />Marketing Reserves
                             </h1>
                         </div>
                         <div className="item" >
                             <div className="circle red" />
-                            <h1 className="f-size-p3">15% - team & <br />
-                                advisors
+                            <h1 className="f-size-p3">
+                                15% - Team & <br />
+                                Advisors
                             </h1>
                         </div>
 
@@ -59,7 +63,7 @@ const Charts = () => {
                 <div className="chart_container">
                     <div className="heading">
                         <h1 className="f-size-h1 f-weight-bo">
-                            Token Distribution
+                            Use of Funds from IDO
                         </h1>
                     </div>
 
@@ -67,25 +71,27 @@ const Charts = () => {
                     <div className="fund_distribution">
                         <div className="item" >
                             <div className="circle purple" />
-                            <h1 className="f-size-p3">50% - NNS stacking</h1>
+                            <h1 className="f-size-p3">
+                                50% - NNS Staking
+                            </h1>
                         </div>
 
                         <div className="item" >
                             <div className="circle blue" />
-                            <h1 className="f-size-p3">30% - liquidity 
-                                <br />pool
+                            <h1 className="f-size-p3">
+                                20% - marketing and<br />
+                                developers
                             </h1>
                         </div>
                         <div className="item" >
                             <div className="circle red" />
-                            <h1 className="f-size-p3">20% - marketing and<br />
-                                developers
+                            <h1 className="f-size-p3">
+                                30% - liquidity
+                                <br />pool
                             </h1>
                         </div>
-
-
-
                     </div>
+                    
 
                     <div className="chart_video">
                         <video
