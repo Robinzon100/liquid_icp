@@ -14,7 +14,6 @@ const Footer = () => {
             image: "/images/twitter.png",
             url: "https://twitter.com/LiquidICP"
         }
-
     ]
 
 

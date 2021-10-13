@@ -79,14 +79,14 @@ const Charts = () => {
                         <div className="item" >
                             <div className="circle blue" />
                             <h1 className="f-size-p3">
-                                20% - marketing and<br />
-                                developers
+                                20% - Marketing and<br />
+                                Developers
                             </h1>
                         </div>
                         <div className="item" >
                             <div className="circle red" />
                             <h1 className="f-size-p3">
-                                30% - liquidity
+                                30% - Liquidity
                                 <br />pool
                             </h1>
                         </div>

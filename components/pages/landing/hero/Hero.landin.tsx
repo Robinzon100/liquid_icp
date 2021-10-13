@@ -221,9 +221,9 @@ const Hero = () => {
             const townMatterial = new THREE.MeshStandardMaterial({
                 color: 0x000000,
                 // roughnessMap: roughnessMapTexture,
-                roughness: 0.19,
+                roughness: .19,
                 normalMap: normalMapTexture,
-                normalScale: new THREE.Vector2(0.18, 0.18),
+                normalScale: new THREE.Vector2(0.4, 0.4),
                 envMap: envmap.texture,
                 envMapIntensity: 10,
                 side: THREE.DoubleSide,
@@ -532,7 +532,6 @@ const Hero = () => {
                                 <p className="f-size-p3">
                                     s-Bridge Now
                                 </p>
-
                                 <h5 className="f-size-p8">
                                     (coming soon)
                                 </h5>
