@@ -282,7 +282,7 @@ const Hero = () => {
                                             opacity: 1
                                         },
                                         {
-                                            duration: 1,
+                                            duration: 2,
                                             opacity: 0
                                         })
                                     initAnimation()
@@ -472,8 +472,8 @@ const Hero = () => {
             // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
             // camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z);
 
-            composer.render();
-            // renderer.render(scene, camera);
+            // composer.render();
+            renderer.render(scene, camera);
             // renderer.clear();
             // const elapsedTime = clock.getElapsedTime();
         }
@@ -522,7 +522,7 @@ const Hero = () => {
                                 href="https://docs.google.com/forms/d/e/1FAIpQLSfYXavM5ucEWCm4Po4rYrX8sKXW5Q2nJbe2iT33r8cnxPPzKw/viewform"
                                 size={2.2}
                                 className="red_hero_btn f-size-p3 btn btn_gradient">
-                                join IDO
+                                Join IDO
                             </Button>
                             <Button
                                 href=""
