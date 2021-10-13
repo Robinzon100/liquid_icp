@@ -40,12 +40,10 @@ const ThreeDIcon: FC = () => {
 
                     {ThreeDIconData.map((icon, i) => (
                         <div className={`icon_container`} key={i}>
-
                             <div className="content">
                                 <h1>{icon.heading}</h1>
                                 <p>{icon.paragraph}</p>
                             </div>
-
                             <canvas className={`three_d_icon_${i} icon`} />
                         </div>
                     ))}
