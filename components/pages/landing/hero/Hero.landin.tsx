@@ -472,8 +472,8 @@ const Hero = () => {
             // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
             // camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z);
 
-            // composer.render();
-            renderer.render(scene, camera);
+            composer.render();
+            // renderer.render(scene, camera);
             // renderer.clear();
             // const elapsedTime = clock.getElapsedTime();
         }
