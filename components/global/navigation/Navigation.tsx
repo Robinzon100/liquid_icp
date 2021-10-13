@@ -66,6 +66,15 @@ const Navigation = () => {
             }
         })
 
+
+        const menu_links = document.querySelectorAll(".links");
+
+        menu_links.forEach(el => {
+            el.addEventListener("click", () => {
+                tl.reverse()
+            })
+        })
+
     })
 
 
