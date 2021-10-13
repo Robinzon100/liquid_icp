@@ -53,6 +53,7 @@ const Button: FC<props> = ({
             <button
                 className={`button ${className}`}
                 id={`${id}`}
+                disabled={disabled}
                 onClick={(e) => _onClick(e)}
                 onMouseOver={onHover}
                 style={style}>

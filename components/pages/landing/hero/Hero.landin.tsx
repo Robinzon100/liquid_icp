@@ -519,7 +519,7 @@ const Hero = () => {
                         </p>
                         <div className="button_group animate_UI">
                             <Button
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSfYXavM5ucEWCm4Po4rYrX8sKXW5Q2nJbe2iT33r8cnxPPzKw/viewform"
+                                disabled={true}
                                 size={2.2}
                                 className="red_hero_btn f-size-p3 btn btn_gradient">
                                 Join IDO
