@@ -75,7 +75,7 @@ const Footer = () => {
 
                 <div className="rights">
                     <h1 className="f-size-p3 f-weight-l">
-                        {new Date().getFullYear()} Liquid ICP. All rights reserved
+                        {new Date().getFullYear()} © 2021 Liquid ICP. All Rights Reserved
                     </h1>
                 </div>
 

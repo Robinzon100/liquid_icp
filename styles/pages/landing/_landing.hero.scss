@@ -69,12 +69,20 @@
 
                         p {
                             transform: translateY(-10%);
+
+                            @media only screen and (max-width: $small_screen_query) {
+                                transform: translateY(-15%);
+                              }
                         }
 
                         h5 {
                             color: var(--black_2);
                             position: absolute;
                             bottom: 2%;
+
+                            @media only screen and (max-width: $small_screen_query) {
+                                bottom: 15%;
+                              }
                         }
                     }
                 }
