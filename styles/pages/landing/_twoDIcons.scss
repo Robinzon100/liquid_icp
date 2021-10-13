@@ -5,7 +5,7 @@
   padding: 1.5rem;
   position: relative;
 
-  
+
 
   .twoDIcons-dark_container {
     @include flex(space-around, center, row);
@@ -26,7 +26,7 @@
     @media only screen and (max-width: 1260px) {
       display: grid !important;
       grid-template-columns: repeat(2, 1fr);
-      gap: 100px 0; 
+      gap: 100px 0;
       padding: 2rem 0;
     }
 
@@ -50,7 +50,7 @@
         height: initial !important;
       }
 
-    
+
 
 
 
@@ -58,12 +58,12 @@
         position: absolute;
         top: 15%;
         transform: translateY(-100%);
-        @include background-image("/images/full_circle.png",contain,center);
+        @include background-image("/images/full_circle.png", contain, center);
         width: 100%;
         height: 14rem;
-        left: -6%;
+        // left: -6%;
 
-        
+
         @media only screen and (max-width: 1260px) {
           position: relative !important;
           top: initial !important;
@@ -99,7 +99,7 @@
         }
       }
 
-      
+
     }
   }
 }
