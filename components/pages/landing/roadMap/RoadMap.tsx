@@ -1,7 +1,7 @@
 const RoadMap = () => {
     return (
         <>
-            <div className="road-map">
+            <div className="road-map" id="roadmap">
                 <div className="heading">
                     <h1 className="f-size-h1 f-weight-bo">Roadmap</h1>
                 </div>
@@ -12,7 +12,7 @@ const RoadMap = () => {
 
 
                 <div className="road-map_plans">
-                    <div className="container" id="roadmap">
+                    <div className="container" >
                         <ul className="grid-el">
 
 
