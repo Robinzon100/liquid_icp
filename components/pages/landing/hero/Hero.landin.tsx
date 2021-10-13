@@ -282,7 +282,7 @@ const Hero = () => {
                                             opacity: 1
                                         },
                                         {
-                                            duration: 1,
+                                            duration: 2,
                                             opacity: 0
                                         })
                                     initAnimation()
@@ -522,7 +522,7 @@ const Hero = () => {
                                 href="https://docs.google.com/forms/d/e/1FAIpQLSfYXavM5ucEWCm4Po4rYrX8sKXW5Q2nJbe2iT33r8cnxPPzKw/viewform"
                                 size={2.2}
                                 className="red_hero_btn f-size-p3 btn btn_gradient">
-                                join IDO
+                                Join IDO
                             </Button>
                             <Button
                                 href=""
