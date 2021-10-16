@@ -297,6 +297,7 @@ const Hero = () => {
 
 
         const initAnimation = () => {
+            // gsap.ticker.lagSmoothing(1)
             const tl = gsap.timeline()
 
             if (window.innerWidth < 750) {
@@ -344,10 +345,7 @@ const Hero = () => {
             }, 8000);
 
 
-
-
             if (window.innerWidth < 750) {
-
                 tl.add('final_scenes')
                 tl.to(camera.rotation, {
                     y: 1,
@@ -364,9 +362,6 @@ const Hero = () => {
                     }, 'final_scenes')
 
             } else {
-
-
-
                 tl.add('final_scenes')
                 tl.to(camera.rotation, {
                     y: 1,
