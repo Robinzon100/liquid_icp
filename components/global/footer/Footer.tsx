@@ -67,7 +67,9 @@ const Footer = () => {
                     <h1 className="f-size-p3 f-weight-l">
                         website made by:
                     </h1>
-                    <div className="oxeni_logo"></div>
+                    <a href="https://twitter.com/oxeni_studio" target="_blank">
+                        <div className="oxeni_logo"/>
+                    </a>
                 </div>
 
 
