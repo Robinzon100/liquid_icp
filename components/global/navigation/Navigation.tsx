@@ -83,6 +83,14 @@ const Navigation = () => {
         tl.reversed() ? tl.restart() : tl.reverse();
     }
 
+    const backtoTop = () => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+        window.scrollTo(0, 0)
+    }
 
 
     return (
@@ -91,7 +99,7 @@ const Navigation = () => {
                 <div className="navigation_container">
 
                     <div className="navigation_items">
-                        <div className="logo" />
+                        <div className="logo" onClick={() => backtoTop()} />
 
                         <ul className="item">
                             <li className="links">

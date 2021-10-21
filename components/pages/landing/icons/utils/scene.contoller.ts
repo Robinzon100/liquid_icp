@@ -141,6 +141,8 @@ export const createScene = (scale: number, elementQueryString: string) => {
         camera.updateProjectionMatrix();
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+
         if (ppEnabled) {
             composer.setSize(sizes.width, sizes.height);
             composer.setSize(window.innerWidth, window.innerHeight);

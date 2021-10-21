@@ -36,12 +36,13 @@ const Hero = () => {
     // const [loadedElements, setLoadedElements] = useState(0)
     let _logo
     let _town
-    let _cameraLook = {
-        isLooking: true
-    }
+    
+    // let _cameraLook = {
+    //     isLooking: true
+    // }
 
     // const _globalTimeline = gsap.timeline()
-
+    let readyForMouse = false;
     const [cursor,] = useState({ x: 0, y: 0 })
 
 
@@ -403,6 +404,7 @@ const Hero = () => {
                             each: 0.3
                         }
                     })
+                    
             }
 
             tl.add('logo')
@@ -414,6 +416,8 @@ const Hero = () => {
                     y: 3,
                     duration: 1
                 }, 'logo')
+                
+                
 
 
             // tl.to(_logo.rotation, {
@@ -430,6 +434,10 @@ const Hero = () => {
                 repeat: -1,
                 ease: 'none',
             })
+
+            setTimeout(() => {
+                readyForMouse = true
+            }, 14000);
 
         }
 
@@ -448,6 +456,12 @@ const Hero = () => {
             camera.aspect = sizes.width / sizes.height;
             camera.updateProjectionMatrix();
 
+            if(window.innerWidth < 750) {
+                camera.position.set(0,1.10,11.10)
+            }else {
+                camera.position.set(-5.85,1.10,11.10)
+            }
+
             renderer.setSize(sizes.width, sizes.height);
             composer.setSize(sizes.width, sizes.height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -459,8 +473,8 @@ const Hero = () => {
 
         //============================  MOUSEMOVE EVENT
         window.addEventListener("mousemove", (e) => {
-            cursor.x = (e.clientX / window.innerWidth) * 2.4 - 1;
-            cursor.y = - (e.clientY / window.innerHeight) * 2.4 + 1;
+            cursor.x = (e.clientX / window.innerWidth) * 0.05;
+            cursor.y = - (e.clientY / window.innerHeight) * 0.05;
         })
 
 
@@ -469,11 +483,22 @@ const Hero = () => {
 
 
 
+        
+
+
         const animate = () => {
             requestAnimationFrame(animate);
-            if (scene.children[2] && _cameraLook.isLooking) {
-                // camera.lookAt(scene.children[1].position)
+            // if (scene.children[2] && _cameraLook.isLooking) {
+            //     // camera.lookAt(scene.children[1].position)
+            // }
+
+            // gsap.to()
+            
+            if(camera && readyForMouse) {
+                gsap.to(camera!.rotation, { y: cursor.x });
+                gsap.to(camera!.rotation, { x: cursor.y });
             }
+            
 
             // controls.update();
             // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
