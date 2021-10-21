@@ -59,6 +59,10 @@
             .button_group {
                 margin-top: 3vw;
 
+                .button {
+                    width: 38%;
+                }
+
                 .btn:nth-child(2) {
                     margin-left: 5%;
 
@@ -126,6 +130,7 @@
 
                     .button {
                         margin: 2vw 0 !important;
+                        width: 100% !important;
                     }
 
                     .button_container {

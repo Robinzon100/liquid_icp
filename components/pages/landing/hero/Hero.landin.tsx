@@ -551,12 +551,14 @@ const Hero = () => {
                         </p>
                         <div className="button_group animate_UI">
                             <Button
+                                
                                 disabled={true}
                                 size={2.2}
                                 className="red_hero_btn f-size-p3 btn btn_gradient">
                                 Join IDO
                             </Button>
                             <Button
+                                
                                 href=""
                                 size={2.2}
                                 className="red_hero_btn  btn btn_black">
