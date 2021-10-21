@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
