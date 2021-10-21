@@ -122,10 +122,7 @@ const Navigation = () => {
                             <h4 className="f-size-p3 f-weight-r">
                                 Enter App
                             </h4>
-
-
                             {/* <h5 className="f-size-p8">(coming soon)</h5> */}
-
 
                         </Button>
 

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 
-import gsap from "gsap";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
@@ -12,7 +13,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 
-
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
@@ -141,6 +142,7 @@ const Hero = () => {
 
         // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
         // camera.rotation.set(PARAMS.c_rotation_x, PARAMS.c_rotation_y, PARAMS.c_rotation_z)
+        camera.position.set(0, 1, 3.5)
         scene.add(camera)
 
 
@@ -314,71 +316,81 @@ const Hero = () => {
                 })
             }
 
+
             tl.to(_logo.rotation, {
                 x: -1.5,
                 y: 0,
                 z: Math.PI,
                 duration: 3,
                 ease: 'none'
-            }).to(camera.position, {
-                x: 0,
-                y: 2.0,
-                z: 0,
-                duration: 3,
-                ease: 'power1.out'
-            }).to(_town.position, {
-                y: -1,
-                duration: 1,
-                ease: 'power4.out'
-            }).to(camera.position, {
-                y: 6.0,
-                x: 0,
-                z: 0,
-                duration: 4,
-                delay: 1,
-                ease: 'power4.out'
-            })
+            }).add('first_zoom')
+                .to(camera.position, {
+                    x: 0,
+                    y: 2.0,
+                    z: 0,
+                    duration: 1.5,
+                    ease: 'power1.out'
+                }, 'first_zoom')
+                .to(camera.rotation, {
+                    x: -Math.PI / 2,
+                    duration: 1.5,
+                    delay: .3,
+                    ease: 'power4.out'
+                }, 'first_zoom')
+                .add('camera_out')
+                .to(_town.position, {
+                    y: -1,
+                    duration: 1,
+                    ease: 'power4.out'
+                }, 'camera_out')
+                .to(camera.position, {
+                    y: 6.0,
+                    x: 0,
+                    z: 0,
+                    duration: 1.5,
+                    delay: .3,
+                    ease: 'power4.out'
+                }, 'camera_out')
+                .to(_logo.rotation, {
+                    z: Math.PI * 2,
+                    duration: 1.5,
+                    ease: 'power3.out'
+                }, 'camera_out')
 
 
-            setTimeout(() => {
-                _logo.rotation.z = 0
-            }, 8000);
+            tl.add('final_scenes')
 
 
             if (window.innerWidth < 750) {
-                tl.add('final_scenes')
                 tl.to(camera.rotation, {
-                    y: 1,
-                    duration: 3,
-                    delay: 1,
-                    ease: 'none'
-                }, 'final_scenes')
-                    .to(camera.position, {
-                        x: 6.85,
-                        y: 1.10,
-                        z: 11.10,
-                        duration: 3,
-                        ease: 'none'
-                    }, 'final_scenes')
-
-            } else {
-                tl.add('final_scenes')
-                tl.to(camera.rotation, {
-                    y: 1,
+                    x: 0,
                     duration: 3,
                     ease: 'circ.out'
                 }, 'final_scenes')
                     .to(camera.position, {
-                        x: 6.85,
+                        x: 0,
                         y: 1.10,
                         z: 11.10,
                         duration: 3,
                         ease: 'circ.out'
                     }, 'final_scenes')
+            } else {
+                tl.to(camera.rotation, {
+                    x: 0,
+                    duration: 3,
+                    ease: 'circ.out'
+                }, 'final_scenes')
+                    .to(camera.position, {
+                        x: -5.85,
+                        y: 1.10,
+                        z: 11.10,
+                        duration: 2.5,
+                        ease: 'circ.out'
+                    }, 'final_scenes')
                     .to(scene.position, {
-                        x: 15,
+                        x: Math.PI / 2,
                         delay: 0,
-                        duration: 3,
+                        duration: 2,
                     }, 'final_scenes')
                     .fromTo('.animate_UI', {
                         x: 15,
@@ -460,7 +472,7 @@ const Hero = () => {
         const animate = () => {
             requestAnimationFrame(animate);
             if (scene.children[2] && _cameraLook.isLooking) {
-                camera.lookAt(scene.children[2].position)
+                // camera.lookAt(scene.children[1].position)
             }
 
             // controls.update();
