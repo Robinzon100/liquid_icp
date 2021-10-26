@@ -11,7 +11,7 @@ const ColorDisplacement = ({ imagesArray }) => {
 
 
     useEffect(() => {
-        init()
+        // init()
     }, [])
 
     const init = () => {
@@ -127,9 +127,9 @@ const ColorDisplacement = ({ imagesArray }) => {
     return (
         <>
             <div id="page-wrap" >
-            <div className="heading">
-                    <h1 className="f-size-h1 f-weight-bo" 
-                    style={{textAlign:"center",margin:"5rem auto"}}
+                <div className="heading">
+                    <h1 className="f-size-h1 f-weight-bo"
+                        style={{ textAlign: "center", margin: "5rem auto" }}
                     >
                         Team
                     </h1>
@@ -142,7 +142,14 @@ const ColorDisplacement = ({ imagesArray }) => {
                         {imagesArray.map((el, i) => (
                             <div key={i} className="plane-wrapper">
                                 <div className="plane-inner">
-                                    <div className="plane">
+                                    <div
+                                        className="plane"
+                                        style={{
+                                            backgroundImage: `url(${el.image})`,
+                                            backgroundPosition: 'center',
+                                            backgroundSize: 'cover'
+                                        }}
+                                    >
                                         <img src={el.image} crossOrigin="" data-sampler="planeTexture" alt="pic" />
                                     </div>
 
