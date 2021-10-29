@@ -125,7 +125,7 @@ const Navigation = () => {
 
                         <Button
                             size={1.2}
-                            href="https://www.app.icp-20.com/"
+                            href="https://app.icp-20.com/"
                             className="btn btn_white navigation_btn">
                             <h4 className="f-size-p3 f-weight-r">
                                 Enter App
