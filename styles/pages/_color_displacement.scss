@@ -64,13 +64,6 @@
   width: 100%;
 }
 
-// div.plane-wrapper:nth-child(3)
-//   > div:nth-child(1)
-//   > div:nth-child(2)
-//   > h1:nth-child(2) {
-//   margin-left: 0;
-// }
-
 .plane-inner {
   .title {
     @include flex(initial, center, row);

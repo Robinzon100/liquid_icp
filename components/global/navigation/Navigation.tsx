@@ -125,11 +125,11 @@ const Navigation = () => {
 
                         <Button
                             size={1.2}
-                            href="https://app.icp-20.com/"
+                            href="https://ido.icp-20.com/"
                             className="btn btn_white navigation_btn">
-                            <h4 className="f-size-p3 f-weight-r">
+                            <a className="f-size-p3 f-weight-r">
                                 Enter App
-                            </h4>
+                            </a>
                             {/* <h5 className="f-size-p8">(coming soon)</h5> */}
 
                         </Button>

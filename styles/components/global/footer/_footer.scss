@@ -8,10 +8,6 @@
   flex-wrap: wrap;
   position: relative;
 
-
-
-
-
   .footer_container {
     height: 15rem;
     width: 100%;
@@ -20,18 +16,15 @@
     padding: 0 2rem;
     position: relative;
 
-
-
     @media only screen and (max-width: $medium_screen_query) {
-        // height: 13rem;
+      // height: 13rem;
     }
 
-      
     @media only screen and (max-width: $small_screen_query) {
-        flex-flow: column;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
+      flex-flow: column;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
 
     .contact_us {
       margin-top: 2.5rem;
@@ -50,12 +43,9 @@
       }
     }
 
-
-
-
     .socials {
-      width: 100%;
-      max-width: 35rem;
+      width: 90%;
+      max-width: 40rem;
       border: 1.5px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0px 44px 61px -25px rgba(8, 8, 9, 0.34),
         0px 3px 20px rgba(8, 8, 9, 0.15);
@@ -64,49 +54,54 @@
       flex-wrap: wrap;
       height: 100%;
       max-height: 10rem;
-      margin: 0 2rem;
+      margin: 0 1rem;
+      padding: 0 2vw;
       transform: translateX(-10%);
 
+      @media only screen and(max-width:1468px) {
+        width: initial;
+        max-width: initial;
+        transform: initial;
+      }
 
       @media only screen and (max-width: $medium_screen_query) {
-        transform:initial;
-
+        transform: initial;
       }
 
       @media only screen and (max-width: $small_screen_query) {
         justify-content: space-evenly;
         margin: 2rem 0;
         border-radius: 36px;
+        width: 100% !important;
       }
 
       :not(:first-child) {
         margin-left: 4.5rem;
 
         @media only screen and (max-width: 960px) {
+          margin-left: 2.5rem;
+        }
+
+        @media only screen and (max-width: 760px) {
           margin-left: 1rem;
         }
       }
 
-
-
-      
       .social {
         background-image: url("/images/telegram.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        height: 3rem;
-        width: 3rem;
+        height: 2rem;
+        width: 2rem;
         cursor: pointer;
 
-        @media only screen and (max-width: 960px) {
-          height: 2rem;
-          width: 2rem;
+        @media only screen and (max-width: 760px) {
+          height: 1.3rem;
+          width: 1.3rem;
         }
       }
     }
-
-
 
     .documentation {
       margin-top: 2.5rem;
@@ -116,7 +111,6 @@
         margin-top: initial !important;
         margin-bottom: 1rem;
         align-items: initial;
-
       }
 
       a {
@@ -124,13 +118,7 @@
         color: var(--white);
       }
     }
-
-
-
-
-    
   }
-
 
   .rights {
     align-self: flex-end;
@@ -138,10 +126,10 @@
     margin-right: 7vw;
 
     @media only screen and (max-width: $small_screen_query) {
-        position: relative;
-        align-self: initial;
-        padding: initial;
-        margin-right: initial;
+      position: relative;
+      align-self: initial;
+      padding: initial;
+      margin-right: initial;
     }
 
     h1 {
@@ -149,12 +137,11 @@
     }
   }
 
-
   .madebyOxeni {
     .oxeni_logo {
-        @include background-image("/images/oxeni.png",contain);
-        width: 11rem;
-        height: 6rem;
+      @include background-image("/images/oxeni.png", contain);
+      width: 11rem;
+      height: 6rem;
     }
   }
 }
