@@ -36,7 +36,7 @@ const Hero = () => {
     // const [loadedElements, setLoadedElements] = useState(0)
     let _logo
     let _town
-    
+
     // let _cameraLook = {
     //     isLooking: true
     // }
@@ -404,7 +404,7 @@ const Hero = () => {
                             each: 0.3
                         }
                     })
-                    
+
             }
 
             tl.add('logo')
@@ -416,8 +416,8 @@ const Hero = () => {
                     y: 3,
                     duration: 1
                 }, 'logo')
-                
-                
+
+
 
 
             // tl.to(_logo.rotation, {
@@ -456,10 +456,10 @@ const Hero = () => {
             camera.aspect = sizes.width / sizes.height;
             camera.updateProjectionMatrix();
 
-            if(window.innerWidth < 750) {
-                camera.position.set(0,1.10,11.10)
-            }else {
-                camera.position.set(-5.85,1.10,11.10)
+            if (window.innerWidth < 750) {
+                camera.position.set(0, 1.10, 11.10)
+            } else {
+                camera.position.set(-5.85, 1.10, 11.10)
             }
 
             renderer.setSize(sizes.width, sizes.height);
@@ -483,7 +483,7 @@ const Hero = () => {
 
 
 
-        
+
 
 
         const animate = () => {
@@ -493,12 +493,12 @@ const Hero = () => {
             // }
 
             // gsap.to()
-            
-            if(camera && readyForMouse) {
+
+            if (camera && readyForMouse) {
                 gsap.to(camera!.rotation, { y: cursor.x });
                 gsap.to(camera!.rotation, { x: cursor.y });
             }
-            
+
 
             // controls.update();
             // camera.position.set(PARAMS.c_location_x, PARAMS.c_location_y, PARAMS.c_location_z);
@@ -551,15 +551,14 @@ const Hero = () => {
                         </p>
                         <div className="button_group animate_UI">
                             <Button
-                                
-                                disabled={true}
+                                style={{ cursor: "pointer" }}
+                                href="https://ido.icp-20.com/"
+                                disabled={false}
                                 size={2.2}
                                 className="red_hero_btn f-size-p3 btn btn_gradient">
                                 Join IDO
                             </Button>
                             <Button
-                                
-                                href=""
                                 size={2.2}
                                 className="red_hero_btn  btn btn_black">
 
