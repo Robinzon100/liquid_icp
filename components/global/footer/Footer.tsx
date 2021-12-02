@@ -13,6 +13,14 @@ const Footer = () => {
         {
             image: "/images/twitter.png",
             url: "https://twitter.com/LiquidICP"
+        },
+        {
+            image: "/svg/github.svg",
+            url: "https://github.com/Liquid-ICP"
+        },
+        {
+            image: "/svg/youtube.svg",
+            url: "https://www.youtube.com/channel/UCiETUWvED-5PGJ0S55opKPA/videos"
         }
     ]
 
@@ -68,7 +76,7 @@ const Footer = () => {
                         website made by:
                     </h1>
                     <a href="https://twitter.com/oxeni_studio" target="_blank">
-                        <div className="oxeni_logo"/>
+                        <div className="oxeni_logo" />
                     </a>
                 </div>
 
